@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class MiniGameTrigger : MonoBehaviour, IInteractable
 {
+    public GameObject PanelWarning;
     public bool IsNeedToPlay;
     public Player Player;
     public PlayerInputHandler PlayerInputHandler;

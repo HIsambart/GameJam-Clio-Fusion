@@ -34,14 +34,12 @@ public class MiniGameWheel : MiniGameTrigger
         _slider.value = WheelValue / 100;
         if (WheelValue > _center.x && WheelValue < _center.y)
         {
-            Debug.Log("monte le temp");
             _currentTimerInCenter += Time.deltaTime;
             _fillBar.fillAmount = _currentTimerInCenter / _maxTimerInCenter;
             if (_currentTimerInCenter >= _maxTimerInCenter) GameOver();
         }
         else
         {
-            Debug.Log("Recomence");
             _fillBar.fillAmount = 0;
             _currentTimerInCenter = 0;
         }
@@ -49,7 +47,9 @@ public class MiniGameWheel : MiniGameTrigger
 
     public override void Interact(Player player)
     {
+        if(!IsNeedToPlay) return;
         Player = player;
+        PanelWarning.SetActive(false);
         PlayerInputHandler = Player.GetComponent<PlayerInputHandler>();
         GameStart();
     }
@@ -63,7 +63,6 @@ public class MiniGameWheel : MiniGameTrigger
         _currentTimerInCenter = _maxTimerInCenter;
         _panel.SetActive(true);
         WheelValue = 0;
-        Debug.Log("Game Cook start");
     }
 
     [ContextMenu("End game")]
@@ -74,7 +73,8 @@ public class MiniGameWheel : MiniGameTrigger
         TokamakManager.Instance.IsTriggerMiniGame = false;
         _gameStarted = false;
         _panel.SetActive(false);
-        Debug.Log("Game finish");
+        IsNeedToPlay = false;
+        GameTrigerManager.Instance.GameWarningCount--;
     }
 
     private void MovingValueWheel(float value)

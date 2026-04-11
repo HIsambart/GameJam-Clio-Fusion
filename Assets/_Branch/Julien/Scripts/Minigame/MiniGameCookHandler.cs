@@ -22,8 +22,6 @@ public class MiniGameCookHandler : MiniGameTrigger
     public int Deuterium;
     public int Triterium;
     
-   
-
     public float MaxTime;
     [SerializeField] private float _currentTime;
 
@@ -56,6 +54,8 @@ public class MiniGameCookHandler : MiniGameTrigger
 
     public override void Interact(Player player)
     {
+        if(!IsNeedToPlay) return;
+        PanelWarning.SetActive(false);
         Player = player;
         PlayerInputHandler = Player.GetComponent<PlayerInputHandler>();
         GameStart();
@@ -113,6 +113,8 @@ public class MiniGameCookHandler : MiniGameTrigger
         PlayerInputHandler.enabled = true;
         _gameStarted = false;
         _panelCooking.SetActive(false);
+        IsNeedToPlay = false;
+        GameTrigerManager.Instance.GameWarningCount--;
         
         TokamakManager.Instance.IsTriggerMiniGame =  false;
         Debug.Log("Game win");
