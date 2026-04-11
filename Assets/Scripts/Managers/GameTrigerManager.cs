@@ -24,6 +24,8 @@ namespace Managers
         {
             if (GameWarningCount >= MiniGameTriggers.Count) return;
             _currentTimeBefforMinigame -= Time.deltaTime;
+            
+            TokamakManager.Instance.IsTriggerMiniGame = GameWarningCount > 0;
             if (_currentTimeBefforMinigame <= 0)
             {
                 ChoiceMiniGame();
