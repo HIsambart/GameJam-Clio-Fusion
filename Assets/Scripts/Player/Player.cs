@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using EventBus = Utils.EventBus;
 
 namespace Player
@@ -10,7 +12,7 @@ namespace Player
         public float Speed;
         public Vector2 move;
         public float MoveWheelDirection;
-        
+        [SerializeField] private Transform _respawnPosition;
         
         [SerializeField] private List<GameObject> _iCollectables = new List<GameObject>();
         [SerializeField] private List<GameObject> _iInteractables = new List<GameObject>();
@@ -22,15 +24,49 @@ namespace Player
         [SerializeField] private Transform _handTransform;
         
         [SerializeField] private Animator _animator;
+        [SerializeField] private bool _isGrounded;
         
+        private CapsuleCollider _collider;
+        private PlayerInput _playerInput;
         private Vector3 _lastDirection;
-        
+
+        private void Awake()
+        {
+            _collider = GetComponent<CapsuleCollider>();
+            _playerInput = GetComponent<PlayerInput>();
+        }
+
         private void Update()
         {
             OnMove();
+            DoRayCast();
             
             _iCollectables.RemoveAll(collider => collider == null);
             _iInteractables.RemoveAll(collider => collider == null);
+        }
+
+        private void DoRayCast()
+        {
+            Vector3 sphereCenter = transform.position + Vector3.down * 2.5f;
+
+            Collider[] hitColliders = Physics.OverlapSphere(sphereCenter, 0.5f);
+            
+            if (hitColliders.Length > 0)
+            {
+                Debug.Log("OverlapSphere a touché : " + hitColliders[0].name);
+                Debug.DrawLine(transform.position, hitColliders[0].transform.position, Color.red);
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, Vector3.down * 5, Color.green);
+            }
+        }
+        
+        void OnDrawGizmos()
+        {
+            Vector3 sphereCenter = transform.position + Vector3.down;
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(sphereCenter, 0.5f);
         }
         
         public void OnMove()
@@ -107,6 +143,20 @@ namespace Player
             {
                 _iInteractables.Remove(other.gameObject);
             }
+        }
+
+        private void PlayerFall()
+        {
+            _collider.isTrigger = true;
+            _playerInput.enabled = false;
+        }
+
+        public void Respawn()
+        {
+            transform.position = _respawnPosition.position;
+            _rigidbody.linearVelocity = Vector3.zero;
+            _collider.isTrigger = false;
+            _playerInput.enabled = true;
         }
         
         // Mini game Cooking methodes
