@@ -52,10 +52,12 @@ namespace _Branch.Hugo.Scripts
             if (CurrentStabilityLevel > WinStabilityLevel)
             {
                 Debug.Log("WIN");
+                GameManager.Instance.LoseGame();
             }
             else if (CurrentStabilityLevel < LooseStabilityLevel)
             {
                 Debug.Log("LOOSE");
+                GameManager.Instance.WinGame();
             }
         }
     }
