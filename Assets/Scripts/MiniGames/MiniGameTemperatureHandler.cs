@@ -1,12 +1,11 @@
-﻿using Julien.Script.PlayerScripts;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MiniGames
 {
     public class MiniGameTemperatureHandler : ContinueMiniGame
     {
         [ContextMenu("Interact")]
-        public override void Interact(Player player)
+        public override void Interact(Player.Player player)
         {
             if (player.EquipedCollectable)
             {
@@ -25,6 +24,7 @@ namespace MiniGames
         private void Update()
         {
             CurrentLevel -= DecreaseSpeed * Time.deltaTime;
+            CurrentLevel = Mathf.Clamp(CurrentLevel, RangeLevel.x, RangeLevel.y);
             
             float t = CurrentLevel / RangeLevel.y;
             float targetSize = Mathf.Lerp(RangeSize.x, RangeSize.y, t);

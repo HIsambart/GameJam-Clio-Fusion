@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8667a700dfad72b44a174e188fbb72e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Branch.Hugo.Scripts.GameManager
+  _panelEndGame: {fileID: 0}
+  _imageEndGame: {fileID: 0}
