@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Julien.Script.PlayerScripts
 {
@@ -11,7 +10,7 @@ namespace Julien.Script.PlayerScripts
         public Vector2 move;
 
         [SerializeField] private List<GameObject> _iCollectables = new List<GameObject>();
-        [SerializeField] public GameObject EquipedCollectable;
+        public GameObject EquipedCollectable;
         
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _handTransform;
@@ -19,15 +18,10 @@ namespace Julien.Script.PlayerScripts
         private void Update()
         {
             OnMove();
-            // OnAim(aim);
         }
         
         public void OnMove()
         {
-            Vector2 dir = move.normalized;
-            
-            //Debug.Log($"animationDir : {animationDir.x}, {animationDir.y}");
-
             Vector3 moveDirection = new Vector3(move.x, 0, move.y);
             _rigidbody.linearVelocity = moveDirection * Speed;
         }
