@@ -41,9 +41,35 @@ namespace MiniGames
             CurrentLevel -= DecreaseSpeed * Time.deltaTime;
             CurrentLevel = Mathf.Clamp(CurrentLevel, RangeLevel.x, RangeLevel.y);
             
+            HandleAlertVisuals();
+            
             float t = CurrentLevel / RangeLevel.y;
             float targetSize = Mathf.Lerp(RangeSize.x, RangeSize.y, t);
             TargetSize.localScale = Vector3.one * targetSize;
+        }
+        
+        private void HandleAlertVisuals()
+        {
+            if (Material == null) return;
+
+            if (CurrentLevel < MinimumLevel && !_isAlerting)
+            {
+                _isAlerting = true;
+                _alertTween = Material.DOColor(Color.red * 500f, "_EmissionColor", 0.2f)
+                    .SetLoops(-1, LoopType.Yoyo)
+                    .SetEase(Ease.InOutSine);
+            }
+            else if (CurrentLevel >= MinimumLevel && _isAlerting)
+            {
+                _isAlerting = false;
+                Material.DOKill();
+                Material.SetColor("_EmissionColor", _defaultEmissionColor);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (Material != null) Material.DOKill();
         }
     }
 }

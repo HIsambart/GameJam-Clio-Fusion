@@ -73,6 +73,8 @@ namespace MiniGames
             _panel.SetActive(false);
             IsNeedToPlay = false;
             GameTrigerManager.Instance.GameWarningCount--;
+            
+            EventBus.OnWheelWin?.Invoke();
         }
 
         private void MovingValueWheel(float value)

@@ -800,6 +800,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2470695428403218029, guid: 74c8df7bf36a10f47aa545f176a846ce, type: 3}
+      propertyPath: _lightWheel
+      value: 
+      objectReference: {fileID: 2100000, guid: 7fbb476d9edef8042bb00d1234b9819b, type: 2}
+    - target: {fileID: 2470695428403218029, guid: 74c8df7bf36a10f47aa545f176a846ce, type: 3}
+      propertyPath: _lightCoocking
+      value: 
+      objectReference: {fileID: 2100000, guid: be3a5e85aa961924096e39787cf71bbc, type: 2}
+    - target: {fileID: 2470695428403218029, guid: 74c8df7bf36a10f47aa545f176a846ce, type: 3}
       propertyPath: 'MiniGameTriggers.Array.data[0]'
       value: 
       objectReference: {fileID: 19644071}

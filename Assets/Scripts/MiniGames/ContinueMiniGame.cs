@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using DG.Tweening;
+using Interfaces;
 using UnityEngine;
 
 namespace MiniGames
@@ -18,6 +19,13 @@ namespace MiniGames
         [Header("===== REFERENCES =====")]
         public Transform TargetSize;
         public Vector2 RangeSize;
+        
+        [Header("===== MATERIAL =====")]
+        public Material Material;
+        
+        protected Tween _alertTween;
+        protected bool _isAlerting;
+        protected Color _defaultEmissionColor = Color.red * 50f;
         
         public abstract void Interact(Player.Player player);
     }

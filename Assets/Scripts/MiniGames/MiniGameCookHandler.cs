@@ -116,6 +116,8 @@ namespace MiniGames
             GameTrigerManager.Instance.GameWarningCount--;
         
             Debug.Log("Game win");
+            
+            EventBus.OnCoockingWin?.Invoke();
         }
 
         private void AddDeuterium()

@@ -198,6 +198,7 @@ MonoBehaviour:
   AddAmount: 10
   TargetSize: {fileID: 7399530541152684037}
   RangeSize: {x: 0, y: 2}
+  Material: {fileID: 2100000, guid: e456dd79ab55d424ebc6c0c4b080f423, type: 2}
 --- !u!65 &6178256495089257409
 BoxCollider:
   m_ObjectHideFlags: 0

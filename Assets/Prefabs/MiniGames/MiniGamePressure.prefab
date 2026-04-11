@@ -53,6 +53,7 @@ MonoBehaviour:
   AddAmount: 10
   TargetSize: {fileID: 3832898914981257206}
   RangeSize: {x: 0, y: 2}
+  Material: {fileID: 2100000, guid: f45ce902fce394c43b330400120255dc, type: 2}
   _pumpTransform: {fileID: 8742911586405378588}
   _pumpSpeed: 0.1
   _moveAmount: 0.5
