@@ -10,6 +10,9 @@ namespace Julien.Script.PlayerScripts
         public Vector2 move;
 
         [SerializeField] private List<GameObject> _iCollectables = new List<GameObject>();
+        [SerializeField] private List<GameObject> _iInteractables = new List<GameObject>();
+        
+        public GameObject MiniGameInteractable;
         public GameObject EquipedCollectable;
         
         [SerializeField] private Rigidbody _rigidbody;
@@ -24,10 +27,19 @@ namespace Julien.Script.PlayerScripts
         {
             Vector3 moveDirection = new Vector3(move.x, 0, move.y);
             _rigidbody.linearVelocity = moveDirection * Speed;
+            
+            transform.rotation = Quaternion.LookRotation(moveDirection);
         }
         
         public void Interact()
         {
+            if (_iInteractables.Count > 0)
+            {
+                _iInteractables[0].GetComponent<IInteractable>().Interact();
+                Debug.Log("Interact with game / " + _iInteractables[0].name);
+                return;
+            }
+            
             if (EquipedCollectable)
             {
                 Debug.Log("drop");
@@ -50,6 +62,11 @@ namespace Julien.Script.PlayerScripts
             {
                 _iCollectables.Add(other.gameObject);
             }
+
+            if (other.gameObject.GetComponent<IInteractable>() != null)
+            {
+                _iInteractables.Add(other.gameObject);
+            }
         }
 
         private void OnTriggerExit(Collider other)
@@ -57,6 +74,11 @@ namespace Julien.Script.PlayerScripts
             if (other.gameObject.GetComponent<ICollectable>() != null)
             {
                 _iCollectables.Remove(other.gameObject);
+            }
+
+            if (other.gameObject.GetComponent<IInteractable>() != null)
+            {
+                _iInteractables.Remove(other.gameObject);
             }
         }
     }
