@@ -4,7 +4,7 @@ using Utils;
 
 namespace Managers
 {
-    public class GameManager : MonoBehaviourSingletonDontDestroyOnLoad<GameManager>
+    public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         private void Start()
         {
