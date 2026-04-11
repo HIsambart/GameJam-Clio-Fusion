@@ -47,18 +47,20 @@ namespace Player
 
         private void DoRayCast()
         {
-            Vector3 sphereCenter = transform.position + Vector3.down * 2.5f;
+            Ray ray = new Ray(transform.position, Vector3.down);
+            RaycastHit hit;
 
-            Collider[] hitColliders = Physics.OverlapSphere(sphereCenter, 0.5f);
-            
-            if (hitColliders.Length > 0)
+            float rayDistance = 5f;
+
+            if (Physics.Raycast(ray, out hit, rayDistance))
             {
-                Debug.Log("OverlapSphere a touché : " + hitColliders[0].name);
-                Debug.DrawLine(transform.position, hitColliders[0].transform.position, Color.red);
+                Debug.Log("Raycast hit: " + hit.collider.name);
+                Debug.DrawLine(transform.position, hit.point, Color.red); 
             }
             else
             {
-                Debug.DrawRay(transform.position, Vector3.down * 5, Color.green);
+                Debug.DrawRay(transform.position, Vector3.down * rayDistance, Color.green);
+                PlayerFall();
             }
         }
         
