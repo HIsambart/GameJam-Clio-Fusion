@@ -1,5 +1,4 @@
 ﻿using Interfaces;
-using Julien.Script.PlayerScripts;
 using UnityEngine;
 
 namespace MiniGames
@@ -20,6 +19,6 @@ namespace MiniGames
         public Transform TargetSize;
         public Vector2 RangeSize;
         
-        public abstract void Interact(Player player);
+        public abstract void Interact(Player.Player player);
     }
 }

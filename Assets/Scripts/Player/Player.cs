@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using Interfaces;
-using Unity.VisualScripting;
 using UnityEngine;
 using EventBus = Utils.EventBus;
 
-namespace Julien.Script.PlayerScripts
+namespace Player
 {
     public class Player : MonoBehaviour
     {

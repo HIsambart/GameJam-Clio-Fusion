@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Julien.Script.PlayerScripts;
 using UnityEngine;
 
 namespace MiniGames
@@ -21,7 +20,7 @@ namespace MiniGames
         }
 
         [ContextMenu("Interact")]
-        public override void Interact(Player player)
+        public override void Interact(Player.Player player)
         {
             CurrentLevel += AddAmount;
 
