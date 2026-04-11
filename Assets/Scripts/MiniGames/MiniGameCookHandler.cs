@@ -77,8 +77,7 @@ namespace MiniGames
             _canCook = false;
             _currentTime = MaxTime;
             _gameStarted = true;
-            TokamakManager.Instance.IsTriggerMiniGame =  true;
-        
+            
             if (Player.GetComponent<PlayerInputCooking>() == null) Player.AddComponent<PlayerInputCooking>();
             PlayerInputHandler.enabled = false;
             _canCook = false;
@@ -116,7 +115,6 @@ namespace MiniGames
             IsNeedToPlay = false;
             GameTrigerManager.Instance.GameWarningCount--;
         
-            TokamakManager.Instance.IsTriggerMiniGame =  false;
             Debug.Log("Game win");
         }
 
