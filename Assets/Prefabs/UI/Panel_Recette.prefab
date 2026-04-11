@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9021111689736315914}
   - component: {fileID: 8976914994550000402}
   m_Layer: 0
-  m_Name: ReccetPanel
+  m_Name: Panel_Recette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,12 +1,11 @@
-﻿using Julien.Script.PlayerScripts;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MiniGames
 {
     public class MiniGameTemperatureHandler : ContinueMiniGame
     {
         [ContextMenu("Interact")]
-        public override void Interact(Player player)
+        public override void Interact(Player.Player player)
         {
             if (player.EquipedCollectable)
             {

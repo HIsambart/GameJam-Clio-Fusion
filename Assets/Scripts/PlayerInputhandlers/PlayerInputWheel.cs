@@ -1,18 +1,17 @@
 using System;
-using Julien.Script.PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Script.Input
+namespace PlayerInputhandlers
 {
-    public class PlayerInputCooking : MonoBehaviour
+    public class PlayerInputWheel : MonoBehaviour
     {
         public PlayerInput _playerInput;
         private bool _isControllerConnected;
         public static event Action<bool> OnInputDeviceChanged;
         
-        public Player _player;
-
+        public Player.Player _player;
+        
         private void Start()
         {
             
@@ -21,23 +20,18 @@ namespace Script.Input
         private void OnEnable()
         {
             _playerInput = GetComponent<PlayerInput>();
-            _player = GetComponent<Player>();
+            _player = GetComponent<Player.Player>();
             
             InputSystem.onDeviceChange += OnDeviceChange;
          
-            _playerInput.actions["CookDeuterium"].performed += OnPutDeuterium;
-            
-            _playerInput.actions["CookTriterium"].performed += OnPutTriterium;
-
+            _playerInput.actions["MoveWheel"].performed += OnMovingWheel;
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
         }
         
         private void OnDisable()
         {
-            _playerInput.actions["CookDeuterium"].performed -= OnPutDeuterium;
-            
-            _playerInput.actions["CookTriterium"].performed -= OnPutTriterium;
+            _playerInput.actions["MoveWheel"].performed -= OnMovingWheel;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -58,14 +52,9 @@ namespace Script.Input
             //: "No controller connected: Switching to Keyboard/Mouse controls.");
         }
         
-        private void OnPutDeuterium(InputAction.CallbackContext context)
+        private void OnMovingWheel(InputAction.CallbackContext context)
         {
-            _player.PutDeuterium();
-        }
-        
-        private void OnPutTriterium(InputAction.CallbackContext context)
-        {
-            _player.PutTriterium();
+            _player.MoveWheel(context.ReadValue<Vector2>().x);
         }
     }
 }

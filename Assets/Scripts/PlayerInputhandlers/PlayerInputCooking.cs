@@ -1,32 +1,32 @@
 using System;
-using Julien.Script.PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Script.Input
+namespace PlayerInputhandlers
 {
-    public class PlayerInputHandler : MonoBehaviour
+    public class PlayerInputCooking : MonoBehaviour
     {
-        private PlayerInput _playerInput;
+        public PlayerInput _playerInput;
         private bool _isControllerConnected;
         public static event Action<bool> OnInputDeviceChanged;
         
-        private Player _player;
-        private void Awake()
+        public Player.Player _player;
+
+        private void Start()
         {
-            _playerInput = GetComponent<PlayerInput>();
-            _player = GetComponent<Player>();
+            
         }
 
         private void OnEnable()
         {
+            _playerInput = GetComponent<PlayerInput>();
+            _player = GetComponent<Player.Player>();
+            
             InputSystem.onDeviceChange += OnDeviceChange;
          
-            _playerInput.actions["Move"].performed += OnMoving;
-            _playerInput.actions["Move"].canceled += OnMoving;
+            _playerInput.actions["CookDeuterium"].performed += OnPutDeuterium;
             
-            _playerInput.actions["Interact"].performed += OnInteract;
-            _playerInput.actions["Interact"].canceled += OnInteract;
+            _playerInput.actions["CookTriterium"].performed += OnPutTriterium;
 
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
@@ -34,9 +34,9 @@ namespace Script.Input
         
         private void OnDisable()
         {
-            _playerInput.actions["Move"].performed -= OnMoving;
+            _playerInput.actions["CookDeuterium"].performed -= OnPutDeuterium;
             
-            _playerInput.actions["Interact"].performed -= OnInteract;
+            _playerInput.actions["CookTriterium"].performed -= OnPutTriterium;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -57,14 +57,14 @@ namespace Script.Input
             //: "No controller connected: Switching to Keyboard/Mouse controls.");
         }
         
-        private void OnMoving(InputAction.CallbackContext context)
+        private void OnPutDeuterium(InputAction.CallbackContext context)
         {
-            _player.move = context.ReadValue<Vector2>();
+            _player.PutDeuterium();
         }
         
-        private void OnInteract(InputAction.CallbackContext context)
+        private void OnPutTriterium(InputAction.CallbackContext context)
         {
-            _player.Interact();
+            _player.PutTriterium();
         }
     }
 }

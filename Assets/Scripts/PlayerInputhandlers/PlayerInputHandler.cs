@@ -1,38 +1,41 @@
 using System;
-using Julien.Script.PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Script.Input
+namespace PlayerInputhandlers
 {
-    public class PlayerInputWheel : MonoBehaviour
+    public class PlayerInputHandler : MonoBehaviour
     {
-        public PlayerInput _playerInput;
+        private PlayerInput _playerInput;
         private bool _isControllerConnected;
         public static event Action<bool> OnInputDeviceChanged;
         
-        public Player _player;
-        
-        private void Start()
+        private Player.Player _player;
+        private void Awake()
         {
-            
+            _playerInput = GetComponent<PlayerInput>();
+            _player = GetComponent<Player.Player>();
         }
 
         private void OnEnable()
         {
-            _playerInput = GetComponent<PlayerInput>();
-            _player = GetComponent<Player>();
-            
             InputSystem.onDeviceChange += OnDeviceChange;
          
-            _playerInput.actions["MoveWheel"].performed += OnMovingWheel;
+            _playerInput.actions["Move"].performed += OnMoving;
+            _playerInput.actions["Move"].canceled += OnMoving;
+            
+            _playerInput.actions["Interact"].performed += OnInteract;
+            _playerInput.actions["Interact"].canceled += OnInteract;
+
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
         }
         
         private void OnDisable()
         {
-            _playerInput.actions["MoveWheel"].performed -= OnMovingWheel;
+            _playerInput.actions["Move"].performed -= OnMoving;
+            
+            _playerInput.actions["Interact"].performed -= OnInteract;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -53,9 +56,14 @@ namespace Script.Input
             //: "No controller connected: Switching to Keyboard/Mouse controls.");
         }
         
-        private void OnMovingWheel(InputAction.CallbackContext context)
+        private void OnMoving(InputAction.CallbackContext context)
         {
-            _player.MoveWheel(context.ReadValue<Vector2>().x);
+            _player.move = context.ReadValue<Vector2>();
+        }
+        
+        private void OnInteract(InputAction.CallbackContext context)
+        {
+            _player.Interact();
         }
     }
 }
