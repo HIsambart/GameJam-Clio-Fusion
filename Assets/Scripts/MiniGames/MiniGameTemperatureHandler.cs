@@ -25,6 +25,7 @@ namespace MiniGames
         private void Update()
         {
             CurrentLevel -= DecreaseSpeed * Time.deltaTime;
+            CurrentLevel = Mathf.Clamp(CurrentLevel, RangeLevel.x, RangeLevel.y);
             
             float t = CurrentLevel / RangeLevel.y;
             float targetSize = Mathf.Lerp(RangeSize.x, RangeSize.y, t);
