@@ -30,6 +30,8 @@ namespace _Branch.Hugo.Scripts
             
             if (_timer > _tickRate)
             {
+                ClearDebris();
+                
                 if (_continueMiniGameTemperature.CurrentLevel < _continueMiniGameTemperature.MinimumLevel
                     && _debrisPrefabs.Count < 3)
                 {
@@ -43,8 +45,6 @@ namespace _Branch.Hugo.Scripts
         [ContextMenu("Spawn Debris")]
         public void SpawnDebris()
         {
-            ClearDebris();
-            
             int spawnCount = Random.Range(_spawnCountRange.x, _spawnCountRange.y + 1);
             
             for (int i = 0; i < spawnCount; i++)
