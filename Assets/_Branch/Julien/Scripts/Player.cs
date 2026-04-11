@@ -10,7 +10,9 @@ namespace Julien.Script.PlayerScripts
     {
         public float Speed;
         public Vector2 move;
-
+        public float MoveWheelDirection;
+        
+        
         [SerializeField] private List<GameObject> _iCollectables = new List<GameObject>();
         [SerializeField] private List<GameObject> _iInteractables = new List<GameObject>();
         
@@ -97,6 +99,15 @@ namespace Julien.Script.PlayerScripts
         {
             EventBus.PutTriterium?.Invoke();
             Debug.Log("PutTriterium");
+        }
+        
+        // Mini game move Wheel
+
+        public void MoveWheel(float context)
+        {
+            MoveWheelDirection = context;
+            if (MoveWheelDirection > -0.2f && MoveWheelDirection < 0) MoveWheelDirection = -0.2f;
+            if (MoveWheelDirection < 0.2f && MoveWheelDirection > 0) MoveWheelDirection = 0.2f;
         }
         
     }

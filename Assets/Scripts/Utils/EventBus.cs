@@ -6,5 +6,7 @@ namespace Utils
     {
         public static Action PutDeuterium;
         public static Action PutTriterium;
+
+        public static Action<float> MovingWheel;
     }
 }
