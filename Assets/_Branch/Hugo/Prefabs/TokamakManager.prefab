@@ -166,6 +166,7 @@ MonoBehaviour:
   ContinueMiniGames:
   - {fileID: 0}
   - {fileID: 0}
+  IsTriggerMiniGame: 0
 --- !u!1 &6487124196732251810
 GameObject:
   m_ObjectHideFlags: 0

@@ -254,15 +254,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206152150264025290, guid: 6a3546f4d98cd814b9dcccf2ee83a0de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.02
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 3206152150264025290, guid: 6a3546f4d98cd814b9dcccf2ee83a0de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.409
       objectReference: {fileID: 0}
     - target: {fileID: 3206152150264025290, guid: 6a3546f4d98cd814b9dcccf2ee83a0de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.2
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 3206152150264025290, guid: 6a3546f4d98cd814b9dcccf2ee83a0de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1256,23 +1256,11 @@ PrefabInstance:
       value: TokamakManager
       objectReference: {fileID: 0}
     - target: {fileID: 5246887942270019178, guid: f24ae4c3b2feda94e91e5cdc11c1c63b, type: 3}
-      propertyPath: ContinueMiniGames.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5246887942270019178, guid: f24ae4c3b2feda94e91e5cdc11c1c63b, type: 3}
       propertyPath: 'ContinueMiniGames.Array.data[0]'
       value: 
       objectReference: {fileID: 116262610}
     - target: {fileID: 5246887942270019178, guid: f24ae4c3b2feda94e91e5cdc11c1c63b, type: 3}
       propertyPath: 'ContinueMiniGames.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1335777020}
-    - target: {fileID: 5246887942270019178, guid: f24ae4c3b2feda94e91e5cdc11c1c63b, type: 3}
-      propertyPath: 'ContinueMiniGames.Array.data[2]'
-      value: 
-      objectReference: {fileID: 1335777020}
-    - target: {fileID: 5246887942270019178, guid: f24ae4c3b2feda94e91e5cdc11c1c63b, type: 3}
-      propertyPath: 'ContinueMiniGames.Array.data[3]'
       value: 
       objectReference: {fileID: 1335777020}
     m_RemovedComponents: []
