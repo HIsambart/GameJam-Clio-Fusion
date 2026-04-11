@@ -2,7 +2,7 @@
 using Julien.Script.PlayerScripts;
 using UnityEngine;
 
-namespace _Branch.Hugo.Scripts
+namespace MiniGames
 {
     public abstract class ContinueMiniGame : MonoBehaviour, IInteractable
     {

@@ -1,7 +1,7 @@
 ﻿using Julien.Script.PlayerScripts;
 using UnityEngine;
 
-namespace _Branch.Hugo.Scripts
+namespace MiniGames
 {
     public class MiniGameTemperatureHandler : ContinueMiniGame
     {
