@@ -11,7 +11,7 @@ namespace Julien.Script.PlayerScripts
         public Vector2 move;
 
         [SerializeField] private List<GameObject> _iCollectables = new List<GameObject>();
-        [SerializeField] private GameObject _equipedCollectable;
+        [SerializeField] public GameObject EquipedCollectable;
         
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _handTransform;
@@ -34,19 +34,19 @@ namespace Julien.Script.PlayerScripts
         
         public void Interact()
         {
-            if (_equipedCollectable)
+            if (EquipedCollectable)
             {
                 Debug.Log("drop");
-                _equipedCollectable.GetComponent<ICollectable>().Drop();
-                _equipedCollectable = null;
+                EquipedCollectable.GetComponent<ICollectable>().Drop();
+                EquipedCollectable = null;
                 return;
             }
             
             if (_iCollectables.Count > 0)
             {
                 Debug.Log("Collect");
-                _equipedCollectable = _iCollectables[0];
-                _equipedCollectable.GetComponent<ICollectable>().Collect(_handTransform);
+                EquipedCollectable = _iCollectables[0];
+                EquipedCollectable.GetComponent<ICollectable>().Collect(_handTransform);
             }
         }
 
