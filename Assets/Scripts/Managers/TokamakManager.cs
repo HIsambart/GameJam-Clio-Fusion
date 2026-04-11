@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using MiniGames;
 using UnityEngine;
 using Utils;
 
-namespace _Branch.Hugo.Scripts
+namespace Managers
 {
     public class TokamakManager : MonoBehaviourSingleton<TokamakManager>
     {

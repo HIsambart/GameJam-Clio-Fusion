@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 3850559004634035801}
   - component: {fileID: 873272339810088872}
   - component: {fileID: 4382012942398928432}
+  - component: {fileID: 2751659097463403937}
   m_Layer: 5
   m_Name: Panel_StartGame
   m_TagString: Untagged
@@ -343,6 +344,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2751659097463403937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313357893685158744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19c731aa4c6eb24ead302bb54c054a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Branch.Hugo.Scripts.UIFirstSelectedButton
+  _firstSelectedButton: {fileID: 2296603020692465827}
 --- !u!1 &6763842470182421452
 GameObject:
   m_ObjectHideFlags: 0

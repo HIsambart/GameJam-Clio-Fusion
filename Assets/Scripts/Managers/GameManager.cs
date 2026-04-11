@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
 
-namespace _Branch.Hugo.Scripts
+namespace Managers
 {
     public class GameManager : MonoBehaviourSingletonDontDestroyOnLoad<GameManager>
     {
