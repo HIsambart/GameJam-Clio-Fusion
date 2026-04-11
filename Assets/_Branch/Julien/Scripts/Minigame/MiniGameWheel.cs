@@ -1,21 +1,25 @@
 using System;
-using _Branch.Hugo.Scripts;
 using Julien.Script.PlayerScripts;
+using Managers;
 using Script.Input;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using EventBus = Utils.EventBus;
 
 public class MiniGameWheel : MiniGameTrigger
 {
     [SerializeField] private bool _gameStarted;
+    [SerializeField] private GameObject _panel;
+    [SerializeField] private Slider _slider;
+    [SerializeField] private Image _fillBar;
     
     public PlayerInputHandler PlayerInputHandler;
 
     [SerializeField] private float _maxTimerInCenter;
     [SerializeField] private float _currentTimerInCenter;
     
-    [Range(-100, 100)] public float WheelValue;
+    [Range(0, 100)] public float WheelValue;
     [SerializeField] private Vector2 _center;
     
     private void Awake()
@@ -27,16 +31,19 @@ public class MiniGameWheel : MiniGameTrigger
     {
         if (!_gameStarted) return;
         MovingValueWheel(Player.MoveWheelDirection);
+        _slider.value = WheelValue / 100;
         if (WheelValue > _center.x && WheelValue < _center.y)
         {
-            Debug.Log("Baisse le temp");
-            _currentTimerInCenter -= Time.deltaTime;
-            if (_currentTimerInCenter <= 0) GameOver();
+            Debug.Log("monte le temp");
+            _currentTimerInCenter += Time.deltaTime;
+            _fillBar.fillAmount = _currentTimerInCenter / _maxTimerInCenter;
+            if (_currentTimerInCenter >= _maxTimerInCenter) GameOver();
         }
         else
         {
             Debug.Log("Recomence");
-            _currentTimerInCenter = _maxTimerInCenter;
+            _fillBar.fillAmount = 0;
+            _currentTimerInCenter = 0;
         }
     }
 
@@ -54,7 +61,8 @@ public class MiniGameWheel : MiniGameTrigger
         _gameStarted = true;
         TokamakManager.Instance.IsTriggerMiniGame = true;
         _currentTimerInCenter = _maxTimerInCenter;
-        WheelValue = -100;
+        _panel.SetActive(true);
+        WheelValue = 0;
         Debug.Log("Game Cook start");
     }
 
@@ -65,12 +73,13 @@ public class MiniGameWheel : MiniGameTrigger
         PlayerInputHandler.enabled = true;
         TokamakManager.Instance.IsTriggerMiniGame = false;
         _gameStarted = false;
+        _panel.SetActive(false);
         Debug.Log("Game finish");
     }
 
     private void MovingValueWheel(float value)
     {
         WheelValue += value;
-        WheelValue = Mathf.Clamp(WheelValue, -100, 100);
+        WheelValue = Mathf.Clamp(WheelValue, 0, 100);
     }
 }

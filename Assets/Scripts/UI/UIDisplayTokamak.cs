@@ -2,7 +2,7 @@ using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Branch.Hugo.Scripts
+namespace UI
 {
     public class UIDisplayTokamak : MonoBehaviour
     {
