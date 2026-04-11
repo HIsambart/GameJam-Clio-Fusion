@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using _Branch.Hugo.Scripts;
 using Julien.Script.PlayerScripts;
+using Managers;
 using Script.Input;
 using Unity.VisualScripting;
 using UnityEngine;
