@@ -1656,6 +1656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PanelWarning
       objectReference: {fileID: 0}
+    - target: {fileID: 5689910429265322044, guid: fdfdaecd5909f1c42887ff1dfc070b30, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6855975398170060658, guid: fdfdaecd5909f1c42887ff1dfc070b30, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
