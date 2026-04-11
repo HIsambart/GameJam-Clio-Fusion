@@ -32,6 +32,17 @@ namespace Managers
 
         private void Update()
         {
+            if (CurrentStabilityLevel > WinStabilityLevel)
+            {
+                GameManager.Instance.WinGame();
+                return;
+            }
+            else if (CurrentStabilityLevel < LooseStabilityLevel)
+            {
+                GameManager.Instance.LoseGame();
+                return;
+            }
+            
             if (IsTriggerMiniGame)
             {
                 CurrentStabilityLevel -= DecreaseSpeed * Time.deltaTime;
@@ -48,17 +59,6 @@ namespace Managers
                 {
                     CurrentStabilityLevel -= DecreaseSpeed * Time.deltaTime;
                 }
-            }
-
-            if (CurrentStabilityLevel > WinStabilityLevel)
-            {
-                Debug.Log("WIN");
-                GameManager.Instance.LoseGame();
-            }
-            else if (CurrentStabilityLevel < LooseStabilityLevel)
-            {
-                Debug.Log("LOOSE");
-                GameManager.Instance.WinGame();
             }
         }
     }

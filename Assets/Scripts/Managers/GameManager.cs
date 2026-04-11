@@ -1,6 +1,6 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Utils;
 
 namespace Managers
@@ -9,7 +9,7 @@ namespace Managers
     {
         [Header("===== REFERENCES =====")]
         [SerializeField] private GameObject _panelEndGame;
-        [SerializeField] private Image _imageEndGame;
+        [SerializeField] private TextMeshProUGUI _tmpEndGame;
         
         private void Start()
         {
@@ -24,13 +24,15 @@ namespace Managers
         public void LoseGame()
         {
             _panelEndGame.SetActive(true);
-            _imageEndGame.color = Color.red;
+            _tmpEndGame.text = "GAME OVER";
+            _tmpEndGame.color = Color.red;
         }
         
         public void WinGame()
         {
             _panelEndGame.SetActive(true);
-            _imageEndGame.color = Color.green;
+            _tmpEndGame.text = "WIN";
+            _tmpEndGame.color = Color.green;
         }
         
         public void ReloadGame()

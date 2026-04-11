@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebrisSpawnerHandler
   _debrisPrefab: {fileID: 8654154292674712703, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
-  _tickRate: 5
+  _tickRate: 6
   _innerRadius: 9.5
   _outerRadius: 12
   _spawnCountRange: {x: 8, y: 12}

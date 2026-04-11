@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Branch.Hugo.Scripts.GameManager
   _panelEndGame: {fileID: 0}
-  _imageEndGame: {fileID: 0}
+  _tmpEndGame: {fileID: 0}

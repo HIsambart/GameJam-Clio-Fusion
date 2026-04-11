@@ -32,8 +32,8 @@ namespace Debris
             {
                 ClearDebris();
                 
-                if (_continueMiniGameTemperature.CurrentLevel < _continueMiniGameTemperature.MinimumLevel
-                    && _debrisPrefabs.Count < 3)
+                if (_continueMiniGameTemperature.CurrentLevel < _continueMiniGameTemperature.MinimumLevel && _debrisPrefabs.Count < 3
+                    || _debrisPrefabs.Count == 0)
                 {
                     SpawnDebris();
                 }
