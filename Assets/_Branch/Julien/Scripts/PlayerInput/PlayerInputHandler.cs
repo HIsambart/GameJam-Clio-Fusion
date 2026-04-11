@@ -35,10 +35,8 @@ namespace Script.Input
         private void OnDisable()
         {
             _playerInput.actions["Move"].performed -= OnMoving;
-            _playerInput.actions["Move"].canceled -= OnMoving;
             
             _playerInput.actions["Interact"].performed -= OnInteract;
-            _playerInput.actions["Interact"].canceled -= OnInteract;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
