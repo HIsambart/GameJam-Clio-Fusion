@@ -21,6 +21,8 @@ namespace Player
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _handTransform;
         
+        [SerializeField] private Animator _animator;
+        
         private Vector3 _lastDirection;
         
         private void Update()
@@ -52,6 +54,8 @@ namespace Player
                 // Sinon on garde la dernière rotation
                 transform.rotation = Quaternion.LookRotation(_lastDirection);
             }
+            
+            _animator.SetBool("IsWalking", moveDirection != Vector3.zero);
         }
         
         public void Interact()
