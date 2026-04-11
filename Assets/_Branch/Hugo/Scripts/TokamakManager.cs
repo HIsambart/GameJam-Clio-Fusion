@@ -21,6 +21,9 @@ namespace _Branch.Hugo.Scripts
         [Header("===== REFERENCES =====")]
         public List<ContinueMiniGame> ContinueMiniGames = new();
 
+        [Header("===== DEBUG =====")]
+        public bool IsTriggerMiniGame;
+
         private void Awake()
         {
             CurrentStabilityLevel = RangeStability.y /2;
@@ -28,15 +31,21 @@ namespace _Branch.Hugo.Scripts
 
         private void Update()
         {
+            if (IsTriggerMiniGame)
+            {
+                CurrentStabilityLevel -= DecreaseSpeed * Time.deltaTime;
+                return;
+            }
+            
             foreach (var miniGame in ContinueMiniGames)
             {
                 if (miniGame.CurrentLevel >= miniGame.MinimumLevel)
                 {
-                    CurrentStabilityLevel += IncreaseSpeed* Time.deltaTime;
+                    CurrentStabilityLevel += IncreaseSpeed * Time.deltaTime;
                 }
                 else
                 {
-                    CurrentStabilityLevel -= DecreaseSpeed* Time.deltaTime;
+                    CurrentStabilityLevel -= DecreaseSpeed * Time.deltaTime;
                 }
             }
 
