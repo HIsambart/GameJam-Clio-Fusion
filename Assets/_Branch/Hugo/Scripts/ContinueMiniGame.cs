@@ -17,6 +17,7 @@ namespace _Branch.Hugo.Scripts
 
         [Header("===== REFERENCES =====")]
         public Transform TargetSize;
+        public Vector2 RangeSize;
         
         public abstract void Interact();
     }
