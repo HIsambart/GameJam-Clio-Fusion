@@ -24,6 +24,9 @@ namespace Script.Input
          
             _playerInput.actions["Move"].performed += OnMoving;
             _playerInput.actions["Move"].canceled += OnMoving;
+            
+            _playerInput.actions["Interact"].performed += OnInteract;
+            _playerInput.actions["Interact"].canceled += OnInteract;
 
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
@@ -33,6 +36,9 @@ namespace Script.Input
         {
             _playerInput.actions["Move"].performed -= OnMoving;
             _playerInput.actions["Move"].canceled -= OnMoving;
+            
+            _playerInput.actions["Interact"].performed -= OnInteract;
+            _playerInput.actions["Interact"].canceled -= OnInteract;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -56,6 +62,11 @@ namespace Script.Input
         private void OnMoving(InputAction.CallbackContext context)
         {
             _player.move = context.ReadValue<Vector2>();
+        }
+        
+        private void OnInteract(InputAction.CallbackContext context)
+        {
+            _player.Interact();
         }
     }
 }

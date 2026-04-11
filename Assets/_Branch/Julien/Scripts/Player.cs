@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Julien.Script.PlayerScripts
 {
@@ -9,8 +10,11 @@ namespace Julien.Script.PlayerScripts
         public float Speed;
         public Vector2 move;
 
-        [SerializeField] private List<IInteractable> _interactables;
+        [SerializeField] private List<GameObject> _iCollectables = new List<GameObject>();
+        [SerializeField] private GameObject _equipedCollectable;
+        
         [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private Transform _handTransform;
         
         private void Update()
         {
@@ -28,31 +32,37 @@ namespace Julien.Script.PlayerScripts
             _rigidbody.linearVelocity = moveDirection * Speed;
         }
         
-        private void TurnIKBones()
-        {
-        }
-        
         public void Interact()
         {
+            if (_equipedCollectable)
+            {
+                Debug.Log("drop");
+                _equipedCollectable.GetComponent<ICollectable>().Drop();
+                _equipedCollectable = null;
+                return;
+            }
+            
+            if (_iCollectables.Count > 0)
+            {
+                Debug.Log("Collect");
+                _equipedCollectable = _iCollectables[0];
+                _equipedCollectable.GetComponent<ICollectable>().Collect(_handTransform);
+            }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponent<IInteractable>() != null)
+            if (other.gameObject.GetComponent<ICollectable>() != null)
             {
-                _interactables.Add(other.gameObject.GetComponent<IInteractable>());
-                if ( _interactables[0] != null)
-                {
-                   _interactables[0].Interact();
-                }
+                _iCollectables.Add(other.gameObject);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.GetComponent<IInteractable>() != null)
+            if (other.gameObject.GetComponent<ICollectable>() != null)
             {
-                _interactables.Remove(other.gameObject.GetComponent<IInteractable>());
+                _iCollectables.Remove(other.gameObject);
             }
         }
     }
