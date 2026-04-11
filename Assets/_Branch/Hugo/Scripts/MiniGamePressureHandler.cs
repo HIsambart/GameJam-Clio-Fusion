@@ -1,3 +1,4 @@
+using Julien.Script.PlayerScripts;
 using UnityEngine;
 
 namespace _Branch.Hugo.Scripts
@@ -5,7 +6,7 @@ namespace _Branch.Hugo.Scripts
     public class MiniGamePressureHandler : ContinueMiniGame
     {
         [ContextMenu("Interact")]
-        public override void Interact()
+        public override void Interact(Player player)
         {
             CurrentLevel += AddAmount;
         }

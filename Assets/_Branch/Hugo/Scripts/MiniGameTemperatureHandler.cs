@@ -1,13 +1,20 @@
-﻿using UnityEngine;
+﻿using Julien.Script.PlayerScripts;
+using UnityEngine;
 
 namespace _Branch.Hugo.Scripts
 {
     public class MiniGameTemperatureHandler : ContinueMiniGame
     {
         [ContextMenu("Interact")]
-        public override void Interact()
+        public override void Interact(Player player)
         {
-            CurrentLevel += AddAmount;
+            if (player.EquipedCollectable)
+            {
+                Destroy(player.EquipedCollectable);
+                player.EquipedCollectable = null;
+                
+                CurrentLevel += AddAmount;
+            }
         }
         
         private void Start()

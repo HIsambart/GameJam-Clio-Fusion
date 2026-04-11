@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using Julien.Script.PlayerScripts;
 using UnityEngine;
 
 namespace _Branch.Hugo.Scripts
@@ -19,6 +20,6 @@ namespace _Branch.Hugo.Scripts
         public Transform TargetSize;
         public Vector2 RangeSize;
         
-        public abstract void Interact();
+        public abstract void Interact(Player player);
     }
 }
