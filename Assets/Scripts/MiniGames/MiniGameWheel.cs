@@ -59,7 +59,6 @@ namespace MiniGames
             if (Player.GetComponent<PlayerInputWheel>() == null) Player.AddComponent<PlayerInputWheel>();
             PlayerInputHandler.enabled = false;
             _gameStarted = true;
-            TokamakManager.Instance.IsTriggerMiniGame = true;
             _currentTimerInCenter = _maxTimerInCenter;
             _panel.SetActive(true);
             WheelValue = 0;
@@ -70,7 +69,6 @@ namespace MiniGames
         {
             Destroy(Player.GetComponent<PlayerInputCooking>());
             PlayerInputHandler.enabled = true;
-            TokamakManager.Instance.IsTriggerMiniGame = false;
             _gameStarted = false;
             _panel.SetActive(false);
             IsNeedToPlay = false;
