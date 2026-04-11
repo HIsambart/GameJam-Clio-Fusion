@@ -3,7 +3,7 @@ using MiniGames;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace _Branch.Hugo.Scripts
+namespace Debris
 {
     public class DebrisSpawnerHandler : MonoBehaviour
     {
