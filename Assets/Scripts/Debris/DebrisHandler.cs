@@ -1,7 +1,7 @@
 using Interfaces;
 using UnityEngine;
 
-namespace _Branch.Hugo.Scripts
+namespace Debris
 {
     public class DebrisHandler : MonoBehaviour, ICollectable
     {

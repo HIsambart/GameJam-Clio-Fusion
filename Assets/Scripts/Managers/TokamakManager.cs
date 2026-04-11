@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using MiniGames;
 using UnityEngine;
 using Utils;
 
-namespace _Branch.Hugo.Scripts
+namespace Managers
 {
     public class TokamakManager : MonoBehaviourSingleton<TokamakManager>
     {
@@ -52,10 +53,12 @@ namespace _Branch.Hugo.Scripts
             if (CurrentStabilityLevel > WinStabilityLevel)
             {
                 Debug.Log("WIN");
+                GameManager.Instance.LoseGame();
             }
             else if (CurrentStabilityLevel < LooseStabilityLevel)
             {
                 Debug.Log("LOOSE");
+                GameManager.Instance.WinGame();
             }
         }
     }
