@@ -14,6 +14,9 @@ namespace _Branch.Hugo.Scripts
         [Header("===== SETTINGS =====")]
         public float DecreaseSpeed;
         public float AddAmount;
+
+        [Header("===== REFERENCES =====")]
+        public Transform TargetSize;
         
         public abstract void Interact();
     }

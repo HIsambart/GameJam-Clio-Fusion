@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 1474633486869255812}
   - component: {fileID: 4091204984449150249}
   - component: {fileID: 8838755284456403006}
-  - component: {fileID: 8494434046892650034}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -123,27 +122,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8494434046892650034
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115418275336309354}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7176711066840047424
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4645157975121197771}
   - component: {fileID: 2122114804989214554}
+  - component: {fileID: 6178256495089257409}
   m_Layer: 0
   m_Name: MiniGameTemperature
   m_TagString: Untagged
@@ -194,3 +173,25 @@ MonoBehaviour:
   CurrentLevel: 50
   DecreaseSpeed: 1
   AddAmount: 10
+  TargetSize: {fileID: 0}
+--- !u!65 &6178256495089257409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176711066840047424}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
