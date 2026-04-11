@@ -21,9 +21,12 @@ namespace Player
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _handTransform;
         
+        private Vector3 _lastDirection;
+        
         private void Update()
         {
             OnMove();
+            
             _iCollectables.RemoveAll(collider => collider == null);
             _iInteractables.RemoveAll(collider => collider == null);
         }
@@ -31,9 +34,24 @@ namespace Player
         public void OnMove()
         {
             Vector3 moveDirection = new Vector3(move.x, 0, move.y);
-            _rigidbody.linearVelocity = moveDirection * Speed;
-            
-            transform.rotation = Quaternion.LookRotation(moveDirection);
+
+            // Conserver la vélocité horizontale
+            Vector3 currentVelocity = _rigidbody.linearVelocity;
+            Vector3 newVelocity = new Vector3(moveDirection.x * Speed, currentVelocity.y, moveDirection.z * Speed);
+
+            _rigidbody.linearVelocity = newVelocity;
+
+            // Si on a une direction, on la sauvegarde
+            if (moveDirection != Vector3.zero)
+            {
+                _lastDirection = moveDirection;
+                transform.rotation = Quaternion.LookRotation(moveDirection);
+            }
+            else if (_lastDirection != Vector3.zero)
+            {
+                // Sinon on garde la dernière rotation
+                transform.rotation = Quaternion.LookRotation(_lastDirection);
+            }
         }
         
         public void Interact()
