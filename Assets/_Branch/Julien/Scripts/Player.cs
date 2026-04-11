@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Interfaces;
+using Unity.VisualScripting;
 using UnityEngine;
+using EventBus = Utils.EventBus;
 
 namespace Julien.Script.PlayerScripts
 {
@@ -21,6 +23,8 @@ namespace Julien.Script.PlayerScripts
         private void Update()
         {
             OnMove();
+            _iCollectables.RemoveAll(collider => collider == null);
+            _iInteractables.RemoveAll(collider => collider == null);
         }
         
         public void OnMove()
@@ -35,7 +39,7 @@ namespace Julien.Script.PlayerScripts
         {
             if (_iInteractables.Count > 0)
             {
-                _iInteractables[0].GetComponent<IInteractable>().Interact();
+                _iInteractables[0].GetComponent<IInteractable>().Interact(this);
                 Debug.Log("Interact with game / " + _iInteractables[0].name);
                 return;
             }
@@ -81,5 +85,19 @@ namespace Julien.Script.PlayerScripts
                 _iInteractables.Remove(other.gameObject);
             }
         }
+        
+        // Mini game Cooking methodes
+        public void PutDeuterium()
+        {
+            EventBus.PutDeuterium?.Invoke();
+            Debug.Log("PutDeuterium");
+        }
+        
+        public void PutTriterium()
+        {
+            EventBus.PutTriterium?.Invoke();
+            Debug.Log("PutTriterium");
+        }
+        
     }
 }
