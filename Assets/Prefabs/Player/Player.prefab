@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 1579143912572145959}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 7278723566435847768}
   _handTransform: {fileID: 5915420092478907350}
   _animator: {fileID: 1049645671923588449}
+  _isGrounded: 0
 --- !u!114 &8345014556872981311
 MonoBehaviour:
   m_ObjectHideFlags: 0
