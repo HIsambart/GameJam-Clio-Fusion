@@ -47,13 +47,16 @@ namespace Managers
             MiniGameTrigger game =  MiniGameTriggers[index];
             if (game.IsNeedToPlay)
             {
+                if (GameWarningCount > MiniGameTriggers.Count) return;
                 ChoiceMiniGame();
             }
             else
             {
                 game.IsNeedToPlay = true;
                 game.PanelWarning.SetActive(true);
+                if (!game.AsPlayedOneTime) game.PlayTutoriel();
                 GameWarningCount++;
+                
 
                 if (index == 0)
                 {

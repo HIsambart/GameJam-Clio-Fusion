@@ -98,6 +98,12 @@ namespace MiniGames
         
         }
 
+        public override void PlayTutoriel()
+        {
+            PanelTutoriel.SetActive(true);
+            AsPlayedOneTime = true;
+        }
+
         public void Retry()
         {
             GameStart();
@@ -112,7 +118,7 @@ namespace MiniGames
             _panelCooking.SetActive(false);
             IsNeedToPlay = false;
             GameTrigerManager.Instance.GameWarningCount--;
-        
+            PanelTutoriel.SetActive(false);
             Debug.Log("Game win");
             
             EventBus.OnCoockingWin?.Invoke();
