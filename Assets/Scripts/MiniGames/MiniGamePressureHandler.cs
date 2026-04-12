@@ -45,7 +45,10 @@ namespace MiniGames
             
             float t = CurrentLevel / RangeLevel.y;
             float targetSize = Mathf.Lerp(RangeSize.x, RangeSize.y, t);
-            TargetSize.localScale = Vector3.one * targetSize;
+            foreach (var target in TargetsSize)
+            {
+                target.localScale = new Vector3(targetSize, targetSize, targetSize);
+            }
         }
         
         private void HandleAlertVisuals()

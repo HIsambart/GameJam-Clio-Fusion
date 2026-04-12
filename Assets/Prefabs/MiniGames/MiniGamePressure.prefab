@@ -51,7 +51,8 @@ MonoBehaviour:
   CurrentLevel: 50
   DecreaseSpeed: 1
   AddAmount: 10
-  TargetSize: {fileID: 3832898914981257206}
+  TargetsSize:
+  - {fileID: 3832898914981257206}
   RangeSize: {x: 0, y: 2}
   Material: {fileID: 2100000, guid: f45ce902fce394c43b330400120255dc, type: 2}
   _pumpTransform: {fileID: 8742911586405378588}

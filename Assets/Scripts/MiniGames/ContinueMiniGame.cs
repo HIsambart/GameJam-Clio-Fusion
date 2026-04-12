@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using Interfaces;
 using PlayerScripts;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace MiniGames
         public float AddAmount;
 
         [Header("===== REFERENCES =====")]
-        public Transform TargetSize;
+        public List<Transform> TargetsSize;
         public Vector2 RangeSize;
         
         [Header("===== MATERIAL =====")]

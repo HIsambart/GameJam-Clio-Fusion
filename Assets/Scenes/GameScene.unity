@@ -187,6 +187,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077fe3c1ff2f98f46bbbee4b6dd4f8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniGameCookHandler
+--- !u!1001 &33637698
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567129078617584514, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253963962694021894, guid: b07a7075ff61111469e193dd664da54e, type: 3}
+      propertyPath: m_Name
+      value: PS_Fog
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b07a7075ff61111469e193dd664da54e, type: 3}
 --- !u!1001 &103260535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -891,14 +948,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2470695428403218029, guid: 74c8df7bf36a10f47aa545f176a846ce, type: 3}
-      propertyPath: _lightWheel
-      value: 
-      objectReference: {fileID: 2100000, guid: 7fbb476d9edef8042bb00d1234b9819b, type: 2}
-    - target: {fileID: 2470695428403218029, guid: 74c8df7bf36a10f47aa545f176a846ce, type: 3}
-      propertyPath: _lightCoocking
-      value: 
-      objectReference: {fileID: 2100000, guid: be3a5e85aa961924096e39787cf71bbc, type: 2}
     - target: {fileID: 2470695428403218029, guid: 74c8df7bf36a10f47aa545f176a846ce, type: 3}
       propertyPath: 'MiniGameTriggers.Array.data[0]'
       value: 
@@ -2195,6 +2244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel_StartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6032182923572813979, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8688611142386808324, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2236,3 +2289,4 @@ SceneRoots:
   - {fileID: 1742207331}
   - {fileID: 724359934}
   - {fileID: 938197577}
+  - {fileID: 33637698}
