@@ -24,7 +24,7 @@ namespace Player
         [SerializeField] private Transform _handTransform;
         
         [SerializeField] private Animator _animator;
-        [SerializeField] private bool _isGrounded;
+        [SerializeField] public bool IsGrounded;
         
         private CapsuleCollider _collider;
         private PlayerInput _playerInput;
@@ -40,7 +40,7 @@ namespace Player
         {
             OnMove();
             DoRayCast();
-            
+            IsGroundedSelection();
             _iCollectables.RemoveAll(collider => collider == null);
             _iInteractables.RemoveAll(collider => collider == null);
         }
@@ -95,6 +95,20 @@ namespace Player
             
             _animator.SetBool("IsWalking", moveDirection != Vector3.zero);
         }
+
+        private void IsGroundedSelection()
+        {
+            if (IsGrounded)
+            {
+                _collider.isTrigger = false;
+                _playerInput.enabled = true;
+            }
+            else
+            {
+                _collider.isTrigger = true;
+                _playerInput.enabled = false;
+            }
+        }
         
         public void Interact()
         {
@@ -147,7 +161,7 @@ namespace Player
             }
         }
 
-        private void PlayerFall()
+        public void PlayerFall()
         {
             _collider.isTrigger = true;
             _playerInput.enabled = false;
