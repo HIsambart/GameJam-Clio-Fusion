@@ -11,6 +11,9 @@ namespace Managers
         [SerializeField] private GameObject _panelEndGame;
         [SerializeField] private TextMeshProUGUI _tmpEndGame;
         
+        [Header("===== PS ======")]
+        [SerializeField] private ParticleSystem _confetisParticles;
+        
         private void Start()
         {
             Cursor.visible = false;
