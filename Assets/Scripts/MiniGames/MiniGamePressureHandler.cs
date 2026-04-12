@@ -9,6 +9,9 @@ namespace MiniGames
         [SerializeField] private Transform _pumpTransform;
         [SerializeField] private float _pumpSpeed = 0.5f;
         [SerializeField] private float _moveAmount = 0.5f;
+        
+        [Header("===== PS ======")]
+        [SerializeField] private ParticleSystem _pumpParticles;
 
         private Tween _pumpTween;
         private Vector3 _initialPumpPosition;
@@ -36,6 +39,8 @@ namespace MiniGames
                 .SetLoops(2, LoopType.Yoyo);
 
             if (PanelUI.activeInHierarchy) PanelUI.SetActive(false);
+            
+            _pumpParticles.Play();
         }
 
         private void Update()

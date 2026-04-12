@@ -30,6 +30,6 @@ public class AudioManager : MonoBehaviourSingleton<AudioManager>
     
     public void PlaySound(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, transform.position);
+        AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
 }

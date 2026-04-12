@@ -61,8 +61,8 @@ namespace MiniGames
 
         public override void GameStart()
         {
-            DeuteriumCount = Random.Range(5, 11);
-            TriteriumCount = Random.Range(5, 11);
+            DeuteriumCount = Random.Range(2, 6);
+            TriteriumCount = Random.Range(2, 6);
 
             Deuterium = 0;
             Triterium = 0;

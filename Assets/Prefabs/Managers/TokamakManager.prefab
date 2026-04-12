@@ -51,7 +51,7 @@ MonoBehaviour:
   WinStabilityLevel: 90
   CurrentStabilityLevel: 0
   IncreaseSpeed: 1
-  DecreaseSpeed: 0.5
+  DecreaseSpeed: 0.4
   ContinueMiniGames:
   - {fileID: 0}
   - {fileID: 0}

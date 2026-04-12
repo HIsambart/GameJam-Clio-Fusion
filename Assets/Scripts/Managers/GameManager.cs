@@ -13,6 +13,8 @@ namespace Managers
         
         [Header("===== PS ======")]
         [SerializeField] private ParticleSystem _confetisParticles;
+
+        private bool _alreadyPlayConfeti = false;
         
         private void Start()
         {
@@ -30,15 +32,20 @@ namespace Managers
             _panelEndGame.SetActive(true);
             _tmpEndGame.text = "GAME OVER";
             _tmpEndGame.color = Color.red;
-            AudioManager.Instance.PlaySound(AudioManager.Instance.BruitDefaite);
+            if (!_alreadyPlayConfeti) AudioManager.Instance.PlaySound(AudioManager.Instance.BruitDefaite);
+            
+            _alreadyPlayConfeti = true;
         }
         
         public void WinGame()
         {
+            if (!_alreadyPlayConfeti) _confetisParticles.Play();
             _panelEndGame.SetActive(true);
             _tmpEndGame.text = "WIN";
             _tmpEndGame.color = Color.green;
-            AudioManager.Instance.PlaySound(AudioManager.Instance.BruitVictoire);
+            if (!_alreadyPlayConfeti) AudioManager.Instance.PlaySound(AudioManager.Instance.BruitVictoire);
+            
+            _alreadyPlayConfeti = true;
         }
         
         public void ReloadGame()

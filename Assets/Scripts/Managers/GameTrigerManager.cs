@@ -76,7 +76,7 @@ namespace Managers
 
         private void SetTime()
         {
-            _maxTimeBefforMinigame = Random.Range(10f, 25f);
+            _maxTimeBefforMinigame = Random.Range(20f, 30f);
             _currentTimeBefforMinigame = _maxTimeBefforMinigame;
         }
 
