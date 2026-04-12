@@ -55,6 +55,9 @@ MonoBehaviour:
   ContinueMiniGames:
   - {fileID: 0}
   - {fileID: 0}
+  _materialPlasma: {fileID: 2100000, guid: aaa2bae6c0a7df044b8671048634a88a, type: 2}
+  _emissionBaseColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  _maxIntensity: 150
   IsTriggerMiniGame: 0
 --- !u!114 &7633887328029292902
 MonoBehaviour:

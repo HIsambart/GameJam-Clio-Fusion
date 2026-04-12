@@ -21,6 +21,11 @@ namespace Managers
         
         [Header("===== REFERENCES =====")]
         public List<ContinueMiniGame> ContinueMiniGames = new();
+        
+        [Header("===== MATERIAL =====")]
+        [SerializeField] private Material _materialPlasma;
+        [SerializeField] private Color _emissionBaseColor = Color.white;
+        [SerializeField] private float _maxIntensity = 100f;
 
         [Header("===== DEBUG =====")]
         public bool IsTriggerMiniGame;
@@ -60,6 +65,19 @@ namespace Managers
                     CurrentStabilityLevel -= DecreaseSpeed * Time.deltaTime;
                 }
             }
+            
+            UpdatePlasmaVisuals();
+        }
+        
+        private void UpdatePlasmaVisuals()
+        {
+            if (_materialPlasma == null) return;
+
+            float t = CurrentStabilityLevel / RangeStability.y;
+
+            float intensity = t * _maxIntensity;
+
+            _materialPlasma.SetColor("_ColorEmissive", _emissionBaseColor * intensity);
         }
     }
 }
