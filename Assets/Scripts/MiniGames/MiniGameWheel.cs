@@ -2,7 +2,6 @@ using InputHandlersScripts;
 using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using EventBus = Utils.EventBus;
 
@@ -74,8 +73,15 @@ namespace MiniGames
             _panel.SetActive(false);
             IsNeedToPlay = false;
             GameTrigerManager.Instance.GameWarningCount--;
+            PanelTutoriel.SetActive(false);
             
             EventBus.OnWheelWin?.Invoke();
+        }
+
+        public override void PlayTutoriel()
+        {
+            PanelTutoriel.SetActive(true);
+            AsPlayedOneTime = true;
         }
 
         private void MovingValueWheel(float value)
