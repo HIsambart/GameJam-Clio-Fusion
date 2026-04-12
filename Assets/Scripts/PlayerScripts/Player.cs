@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using EventBus = Utils.EventBus;
 
-namespace Player
+namespace PlayerScripts
 {
     public class Player : MonoBehaviour
     {
@@ -24,10 +23,10 @@ namespace Player
         [SerializeField] private Transform _handTransform;
         
         [SerializeField] private Animator _animator;
-        [SerializeField] private bool _isGrounded;
+        [SerializeField] public bool IsGrounded;
         
         private CapsuleCollider _collider;
-        private PlayerInput _playerInput;
+        public PlayerInput _playerInput;
         private Vector3 _lastDirection;
 
         private void Awake()
@@ -40,25 +39,27 @@ namespace Player
         {
             OnMove();
             DoRayCast();
-            
+            IsGroundedSelection();
             _iCollectables.RemoveAll(collider => collider == null);
             _iInteractables.RemoveAll(collider => collider == null);
         }
 
         private void DoRayCast()
         {
-            Vector3 sphereCenter = transform.position + Vector3.down * 2.5f;
+            Ray ray = new Ray(transform.position, Vector3.down);
+            RaycastHit hit;
 
-            Collider[] hitColliders = Physics.OverlapSphere(sphereCenter, 0.5f);
-            
-            if (hitColliders.Length > 0)
+            float rayDistance = 5f;
+
+            if (Physics.Raycast(ray, out hit, rayDistance))
             {
-                Debug.Log("OverlapSphere a touché : " + hitColliders[0].name);
-                Debug.DrawLine(transform.position, hitColliders[0].transform.position, Color.red);
+                Debug.Log("Raycast hit: " + hit.collider.name);
+                Debug.DrawLine(transform.position, hit.point, Color.red); 
             }
             else
             {
-                Debug.DrawRay(transform.position, Vector3.down * 5, Color.green);
+                Debug.DrawRay(transform.position, Vector3.down * rayDistance, Color.green);
+                PlayerFall();
             }
         }
         
@@ -92,6 +93,20 @@ namespace Player
             }
             
             _animator.SetBool("IsWalking", moveDirection != Vector3.zero);
+        }
+
+        private void IsGroundedSelection()
+        {
+            if (IsGrounded)
+            {
+                _collider.isTrigger = false;
+                _playerInput.enabled = true;
+            }
+            else
+            {
+                _collider.isTrigger = true;
+                _playerInput.enabled = false;
+            }
         }
         
         public void Interact()
@@ -145,7 +160,7 @@ namespace Player
             }
         }
 
-        private void PlayerFall()
+        public void PlayerFall()
         {
             _collider.isTrigger = true;
             _playerInput.enabled = false;

@@ -1,6 +1,7 @@
+using InputHandlersScripts;
 using Interfaces;
-using PlayerInputhandlers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MiniGames
 {
@@ -8,10 +9,10 @@ namespace MiniGames
     {
         public GameObject PanelWarning;
         public bool IsNeedToPlay;
-        public Player.Player Player;
-        public PlayerInputHandler PlayerInputHandler;
+        public PlayerScripts.Player Player;
+        public PlayerInputSubscriber PlayerInputS;
     
-        public abstract void Interact(Player.Player player);
+        public abstract void Interact(PlayerScripts.Player player);
         public abstract void GameStart();
         public abstract void GameOver();
     }

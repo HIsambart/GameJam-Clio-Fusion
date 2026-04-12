@@ -47,5 +47,8 @@ MonoBehaviour:
   MiniGameTriggers:
   - {fileID: 0}
   - {fileID: 0}
+  GameWarningCount: 0
   _maxTimeBefforMinigame: 0
   _currentTimeBefforMinigame: 0
+  _lightWheel: {fileID: 2100000, guid: 7fbb476d9edef8042bb00d1234b9819b, type: 2}
+  _lightCoocking: {fileID: 2100000, guid: be3a5e85aa961924096e39787cf71bbc, type: 2}

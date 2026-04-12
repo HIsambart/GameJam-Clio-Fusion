@@ -13,6 +13,7 @@ namespace Managers
         
         private void Start()
         {
+            Cursor.visible = false;
             Time.timeScale = 0;
         }
 

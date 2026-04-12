@@ -1,7 +1,8 @@
+using InputHandlersScripts;
 using Managers;
-using PlayerInputhandlers;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using EventBus = Utils.EventBus;
 
@@ -13,14 +14,14 @@ namespace MiniGames
         [SerializeField] private GameObject _panel;
         [SerializeField] private Slider _slider;
         [SerializeField] private Image _fillBar;
-    
-        public PlayerInputHandler PlayerInputHandler;
 
         [SerializeField] private float _maxTimerInCenter;
         [SerializeField] private float _currentTimerInCenter;
     
         [Range(0, 100)] public float WheelValue;
         [SerializeField] private Vector2 _center;
+        
+        [SerializeField] private Transform _wheelTransform;
     
         private void Awake()
         {
@@ -45,19 +46,19 @@ namespace MiniGames
             }
         }
 
-        public override void Interact(Player.Player player)
+        public override void Interact(PlayerScripts.Player player)
         {
             if(!IsNeedToPlay) return;
             Player = player;
             PanelWarning.SetActive(false);
-            PlayerInputHandler = Player.GetComponent<PlayerInputHandler>();
+            PlayerInputS = Player.GetComponent<PlayerInputSubscriber>();
             GameStart();
         }
 
         public override void GameStart()
         {
             if (Player.GetComponent<PlayerInputWheel>() == null) Player.AddComponent<PlayerInputWheel>();
-            PlayerInputHandler.enabled = false;
+            PlayerInputS.enabled = false;
             _gameStarted = true;
             _currentTimerInCenter = _maxTimerInCenter;
             _panel.SetActive(true);
@@ -68,17 +69,28 @@ namespace MiniGames
         public override void GameOver()
         {
             Destroy(Player.GetComponent<PlayerInputCooking>());
-            PlayerInputHandler.enabled = true;
+            PlayerInputS.enabled = true;
             _gameStarted = false;
             _panel.SetActive(false);
             IsNeedToPlay = false;
             GameTrigerManager.Instance.GameWarningCount--;
+            
+            EventBus.OnWheelWin?.Invoke();
         }
 
         private void MovingValueWheel(float value)
         {
-            WheelValue += value;
+            WheelValue += (value * 100)  * Time.deltaTime;
             WheelValue = Mathf.Clamp(WheelValue, 0, 100);
+
+            if (value > 0)
+            {
+                _wheelTransform.Rotate(Vector3.forward, 180f * Time.deltaTime);
+            }
+            else if (value < 0)
+            {
+                _wheelTransform.Rotate(Vector3.forward, -180f * Time.deltaTime);
+            }
         }
     }
 }

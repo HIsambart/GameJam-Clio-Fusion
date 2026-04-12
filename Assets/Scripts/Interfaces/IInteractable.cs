@@ -2,6 +2,6 @@ namespace Interfaces
 {
     public interface IInteractable
     {
-        public void Interact(Player.Player player);
+        public void Interact(PlayerScripts.Player player);
     }
 }
