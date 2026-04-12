@@ -1,31 +1,29 @@
 using System;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PlayerInputhandlers
+namespace InputHandlersScripts
 {
-    public class PlayerInputHandler : MonoBehaviour
+    public class PlayerInputSubscriber : MonoBehaviour
     {
-        private PlayerInput _playerInput;
         private bool _isControllerConnected;
-        public static event Action<bool> OnInputDeviceChanged;
         
-        private Player.Player _player;
+        private Player _player;
         private void Awake()
         {
-            _playerInput = GetComponent<PlayerInput>();
-            _player = GetComponent<Player.Player>();
+            _player = GetComponent<Player>();
         }
 
         private void OnEnable()
         {
             InputSystem.onDeviceChange += OnDeviceChange;
          
-            _playerInput.actions["Move"].performed += OnMoving;
-            _playerInput.actions["Move"].canceled += OnMoving;
+            _player._playerInput.actions["Move"].performed += OnMoving;
+            _player._playerInput.actions["Move"].canceled += OnMoving;
             
-            _playerInput.actions["Interact"].performed += OnInteract;
-            _playerInput.actions["Interact"].canceled += OnInteract;
+            _player._playerInput.actions["Interact"].performed += OnInteract;
+            _player._playerInput.actions["Interact"].canceled += OnInteract;
 
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
@@ -33,9 +31,9 @@ namespace PlayerInputhandlers
         
         private void OnDisable()
         {
-            _playerInput.actions["Move"].performed -= OnMoving;
+            _player._playerInput.actions["Move"].performed -= OnMoving;
             
-            _playerInput.actions["Interact"].performed -= OnInteract;
+            _player._playerInput.actions["Interact"].performed -= OnInteract;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -49,7 +47,6 @@ namespace PlayerInputhandlers
         private void DetectCurrentInputDevice()
         {
             _isControllerConnected = Gamepad.all.Count > 0;
-            OnInputDeviceChanged?.Invoke(_isControllerConnected);
             
             //Debug.Log(_isControllerConnected
             //? "Controller connected: Switching to Gamepad controls."

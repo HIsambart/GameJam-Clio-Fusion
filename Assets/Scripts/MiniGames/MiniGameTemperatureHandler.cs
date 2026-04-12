@@ -6,7 +6,7 @@ namespace MiniGames
     public class MiniGameTemperatureHandler : ContinueMiniGame
     {
         [ContextMenu("Interact")]
-        public override void Interact(Player.Player player)
+        public override void Interact(PlayerScripts.Player player)
         {
             if (player.EquipedCollectable)
             {

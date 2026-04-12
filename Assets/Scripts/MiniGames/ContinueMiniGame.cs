@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using Interfaces;
+using PlayerScripts;
 using UnityEngine;
 
 namespace MiniGames
@@ -27,6 +28,6 @@ namespace MiniGames
         protected bool _isAlerting;
         protected Color _defaultEmissionColor = Color.red * 50f;
         
-        public abstract void Interact(Player.Player player);
+        public abstract void Interact(Player player);
     }
 }

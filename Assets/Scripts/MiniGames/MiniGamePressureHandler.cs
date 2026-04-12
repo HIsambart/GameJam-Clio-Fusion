@@ -20,7 +20,7 @@ namespace MiniGames
         }
 
         [ContextMenu("Interact")]
-        public override void Interact(Player.Player player)
+        public override void Interact(PlayerScripts.Player player)
         {
             CurrentLevel += AddAmount;
 
