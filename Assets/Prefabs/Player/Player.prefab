@@ -119,6 +119,7 @@ MonoBehaviour:
   _handTransform: {fileID: 5915420092478907350}
   _animator: {fileID: 1049645671923588449}
   IsGrounded: 0
+  _playerInput: {fileID: 3945778858872024298}
 --- !u!114 &8345014556872981311
 MonoBehaviour:
   m_ObjectHideFlags: 0

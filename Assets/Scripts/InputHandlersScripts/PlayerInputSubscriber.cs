@@ -1,4 +1,5 @@
 using System;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,10 +9,10 @@ namespace InputHandlersScripts
     {
         private bool _isControllerConnected;
         
-        private PlayerScripts.Player _player;
+        private Player _player;
         private void Awake()
         {
-            _player = GetComponent<PlayerScripts.Player>();
+            _player = GetComponent<Player>();
         }
 
         private void OnEnable()
@@ -22,7 +23,7 @@ namespace InputHandlersScripts
             _player._playerInput.actions["Move"].canceled += OnMoving;
             
             _player._playerInput.actions["Interact"].performed += OnInteract;
-            _player._playerInput.actions["Interact"].canceled += OnInteract;
+            // _player._playerInput.actions["Interact"].canceled += OnInteract;
 
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
