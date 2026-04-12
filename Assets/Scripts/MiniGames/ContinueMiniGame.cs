@@ -25,6 +25,9 @@ namespace MiniGames
         [Header("===== MATERIAL =====")]
         public Material Material;
         
+        [Header("===== UI =====")]
+        public GameObject PanelUI;
+        
         protected Tween _alertTween;
         protected bool _isAlerting;
         protected Color _defaultEmissionColor = Color.red * 20f;

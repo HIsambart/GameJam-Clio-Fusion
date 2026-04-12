@@ -34,6 +34,8 @@ namespace MiniGames
             _pumpTween = _pumpTransform.DOMoveY(_initialPumpPosition.y - _moveAmount, _pumpSpeed)
                 .SetEase(Ease.OutQuad)
                 .SetLoops(2, LoopType.Yoyo);
+
+            if (PanelUI.activeInHierarchy) PanelUI.SetActive(false);
         }
 
         private void Update()

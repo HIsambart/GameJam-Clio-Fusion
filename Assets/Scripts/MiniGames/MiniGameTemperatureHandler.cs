@@ -14,6 +14,8 @@ namespace MiniGames
                 player.EquipedCollectable = null;
                 
                 CurrentLevel += AddAmount;
+                
+                if (PanelUI.activeInHierarchy) PanelUI.SetActive(false);
             }
         }
         
