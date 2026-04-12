@@ -199,38 +199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel_EndGame
       objectReference: {fileID: 0}
-    - target: {fileID: 1152391869823674785, guid: 592265022bf259b408eb63a346a5397c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2168317483380628649, guid: 592265022bf259b408eb63a346a5397c, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2168317483380628649, guid: 592265022bf259b408eb63a346a5397c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e41fd93a69957e046b46621734c24e31, type: 3}
-    - target: {fileID: 2168317483380628649, guid: 592265022bf259b408eb63a346a5397c, type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 4.45
-      objectReference: {fileID: 0}
     - target: {fileID: 4043490474801362840, guid: 592265022bf259b408eb63a346a5397c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1747225675}
-    - target: {fileID: 4548551938514883265, guid: 592265022bf259b408eb63a346a5397c, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548551938514883265, guid: 592265022bf259b408eb63a346a5397c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e41fd93a69957e046b46621734c24e31, type: 3}
-    - target: {fileID: 4548551938514883265, guid: 592265022bf259b408eb63a346a5397c, type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 4.45
-      objectReference: {fileID: 0}
     - target: {fileID: 6752856545403126152, guid: 592265022bf259b408eb63a346a5397c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2135,18 +2107,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1747225675}
-    - target: {fileID: 2281039947968620225, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2281039947968620225, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e41fd93a69957e046b46621734c24e31, type: 3}
-    - target: {fileID: 2281039947968620225, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3217900404144430762, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2231,10 +2191,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel_StartGame
       objectReference: {fileID: 0}
-    - target: {fileID: 6032182923572813979, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8688611142386808324, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2243,10 +2199,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 561073256}
-    - target: {fileID: 9144596966031285018, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8792ae1e1afd98e4db43e0b0ace2941f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
