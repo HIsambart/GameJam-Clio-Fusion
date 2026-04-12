@@ -27,7 +27,7 @@ namespace MiniGames
         
         protected Tween _alertTween;
         protected bool _isAlerting;
-        protected Color _defaultEmissionColor = Color.red * 50f;
+        protected Color _defaultEmissionColor = Color.red * 20f;
         
         public abstract void Interact(Player player);
     }

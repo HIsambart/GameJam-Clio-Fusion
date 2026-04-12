@@ -20,7 +20,7 @@ namespace Managers
         [SerializeField] private Material _lightWheel;
         [SerializeField] private Material _lightCoocking;
 
-        private readonly Color _defaultEmissionColor = Color.red * 50f;
+        private readonly Color _defaultEmissionColor = Color.red * 20f;
 
         private void Start()
         {
