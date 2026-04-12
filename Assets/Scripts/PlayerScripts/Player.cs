@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using EventBus = Utils.EventBus;
 
-namespace Player
+namespace PlayerScripts
 {
     public class Player : MonoBehaviour
     {
@@ -27,7 +26,7 @@ namespace Player
         [SerializeField] public bool IsGrounded;
         
         private CapsuleCollider _collider;
-        private PlayerInput _playerInput;
+        public PlayerInput _playerInput;
         private Vector3 _lastDirection;
 
         private void Awake()

@@ -19,6 +19,6 @@ namespace MiniGames
         public Transform TargetSize;
         public Vector2 RangeSize;
         
-        public abstract void Interact(Player.Player player);
+        public abstract void Interact(PlayerScripts.Player player);
     }
 }

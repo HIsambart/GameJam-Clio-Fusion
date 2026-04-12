@@ -2,36 +2,37 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PlayerInputhandlers
+namespace InputHandlersScripts
 {
-    public class PlayerInputWheel : MonoBehaviour
+    public class PlayerInputSubscriber : MonoBehaviour
     {
-        public PlayerInput _playerInput;
         private bool _isControllerConnected;
-        public static event Action<bool> OnInputDeviceChanged;
         
-        public Player.Player _player;
-        
-        private void Start()
+        private PlayerScripts.Player _player;
+        private void Awake()
         {
-            
+            _player = GetComponent<PlayerScripts.Player>();
         }
 
         private void OnEnable()
         {
-            _playerInput = GetComponent<PlayerInput>();
-            _player = GetComponent<Player.Player>();
-            
             InputSystem.onDeviceChange += OnDeviceChange;
          
-            _playerInput.actions["MoveWheel"].performed += OnMovingWheel;
+            _player._playerInput.actions["Move"].performed += OnMoving;
+            _player._playerInput.actions["Move"].canceled += OnMoving;
+            
+            _player._playerInput.actions["Interact"].performed += OnInteract;
+            _player._playerInput.actions["Interact"].canceled += OnInteract;
+
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
         }
         
         private void OnDisable()
         {
-            _playerInput.actions["MoveWheel"].performed -= OnMovingWheel;
+            _player._playerInput.actions["Move"].performed -= OnMoving;
+            
+            _player._playerInput.actions["Interact"].performed -= OnInteract;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -45,16 +46,20 @@ namespace PlayerInputhandlers
         private void DetectCurrentInputDevice()
         {
             _isControllerConnected = Gamepad.all.Count > 0;
-            OnInputDeviceChanged?.Invoke(_isControllerConnected);
             
             //Debug.Log(_isControllerConnected
             //? "Controller connected: Switching to Gamepad controls."
             //: "No controller connected: Switching to Keyboard/Mouse controls.");
         }
         
-        private void OnMovingWheel(InputAction.CallbackContext context)
+        private void OnMoving(InputAction.CallbackContext context)
         {
-            _player.MoveWheel(context.ReadValue<Vector2>().x);
+            _player.move = context.ReadValue<Vector2>();
+        }
+        
+        private void OnInteract(InputAction.CallbackContext context)
+        {
+            _player.Interact();
         }
     }
 }
