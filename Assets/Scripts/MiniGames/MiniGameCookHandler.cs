@@ -1,6 +1,6 @@
 using System.Collections;
+using InputHandlersScripts;
 using Managers;
-using PlayerInputhandlers;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,8 +13,6 @@ namespace MiniGames
     {
         [SerializeField] private bool _gameStarted;
         [SerializeField] private bool _canCook;
-    
-        public PlayerInputHandler PlayerInputHandler;
     
         public int DeuteriumCount;
         public int TriteriumCount;
@@ -52,12 +50,12 @@ namespace MiniGames
             }
         }
 
-        public override void Interact(Player.Player player)
+        public override void Interact(PlayerScripts.Player player)
         {
             if(!IsNeedToPlay) return;
             PanelWarning.SetActive(false);
             Player = player;
-            PlayerInputHandler = Player.GetComponent<PlayerInputHandler>();
+            PlayerInputS = Player.GetComponent<PlayerInputSubscriber>();
             GameStart();
         }
 
@@ -79,7 +77,7 @@ namespace MiniGames
             _gameStarted = true;
             
             if (Player.GetComponent<PlayerInputCooking>() == null) Player.AddComponent<PlayerInputCooking>();
-            PlayerInputHandler.enabled = false;
+            PlayerInputS.enabled = false;
             _canCook = false;
             StartCoroutine(HideRecette());
             Debug.Log("Game Cook start");
@@ -109,13 +107,15 @@ namespace MiniGames
         public void GameWin()
         {
             Destroy(Player.GetComponent<PlayerInputCooking>());
-            PlayerInputHandler.enabled = true;
+            PlayerInputS.enabled = true;
             _gameStarted = false;
             _panelCooking.SetActive(false);
             IsNeedToPlay = false;
             GameTrigerManager.Instance.GameWarningCount--;
         
             Debug.Log("Game win");
+            
+            EventBus.OnCoockingWin?.Invoke();
         }
 
         private void AddDeuterium()

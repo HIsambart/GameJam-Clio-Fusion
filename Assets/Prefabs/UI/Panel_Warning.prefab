@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8940729588639708983}
   - component: {fileID: 4188667334195421946}
   - component: {fileID: 1990790804125168124}
+  - component: {fileID: 4374825786343818956}
   m_Layer: 0
   m_Name: Panel_Warning
   m_TagString: Untagged
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4188667334195421946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +117,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccd8a27f77b859439aa7630fbd25914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CanvaLookCamera
+--- !u!114 &4374825786343818956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689910429265322044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15977bf2ba5be943b8cac7847f8af9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashingWarning
   _image: {fileID: 1434074312974255077}
 --- !u!1 &9149438839299161329
 GameObject:

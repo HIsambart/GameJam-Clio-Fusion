@@ -2,30 +2,28 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PlayerInputhandlers
+namespace InputHandlersScripts
 {
-    public class PlayerInputHandler : MonoBehaviour
+    public class PlayerInputCooking : MonoBehaviour
     {
-        private PlayerInput _playerInput;
         private bool _isControllerConnected;
-        public static event Action<bool> OnInputDeviceChanged;
         
-        private Player.Player _player;
-        private void Awake()
+        public PlayerScripts.Player _player;
+
+        private void Start()
         {
-            _playerInput = GetComponent<PlayerInput>();
-            _player = GetComponent<Player.Player>();
+            
         }
 
         private void OnEnable()
         {
+            _player = GetComponent<PlayerScripts.Player>();
+            
             InputSystem.onDeviceChange += OnDeviceChange;
          
-            _playerInput.actions["Move"].performed += OnMoving;
-            _playerInput.actions["Move"].canceled += OnMoving;
+            _player._playerInput.actions["CookDeuterium"].performed += OnPutDeuterium;
             
-            _playerInput.actions["Interact"].performed += OnInteract;
-            _playerInput.actions["Interact"].canceled += OnInteract;
+            _player._playerInput.actions["CookTriterium"].performed += OnPutTriterium;
 
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
@@ -33,9 +31,9 @@ namespace PlayerInputhandlers
         
         private void OnDisable()
         {
-            _playerInput.actions["Move"].performed -= OnMoving;
+            _player._playerInput.actions["CookDeuterium"].performed -= OnPutDeuterium;
             
-            _playerInput.actions["Interact"].performed -= OnInteract;
+            _player._playerInput.actions["CookTriterium"].performed -= OnPutTriterium;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -49,21 +47,20 @@ namespace PlayerInputhandlers
         private void DetectCurrentInputDevice()
         {
             _isControllerConnected = Gamepad.all.Count > 0;
-            OnInputDeviceChanged?.Invoke(_isControllerConnected);
             
             //Debug.Log(_isControllerConnected
             //? "Controller connected: Switching to Gamepad controls."
             //: "No controller connected: Switching to Keyboard/Mouse controls.");
         }
         
-        private void OnMoving(InputAction.CallbackContext context)
+        private void OnPutDeuterium(InputAction.CallbackContext context)
         {
-            _player.move = context.ReadValue<Vector2>();
+            _player.PutDeuterium();
         }
         
-        private void OnInteract(InputAction.CallbackContext context)
+        private void OnPutTriterium(InputAction.CallbackContext context)
         {
-            _player.Interact();
+            _player.PutTriterium();
         }
     }
 }
