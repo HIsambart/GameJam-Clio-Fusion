@@ -631,8 +631,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Stabiliser le r\xE9acteur \xE0 \nfusion nucl\xE9aire !"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6746c8a1c7903394f802305f911754d9, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6746c8a1c7903394f802305f911754d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2503,6 +2503,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3217900404144430762, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4299027273858566731, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
+      propertyPath: m_fontSize
+      value: 61.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4299027273858566731, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+    - target: {fileID: 4299027273858566731, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+    - target: {fileID: 4299027273858566731, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6032182923572813979, guid: bfceb25d24b0e62449cc9e04c3f94380, type: 3}

@@ -57,7 +57,7 @@ Material:
     - _Transparence: 0.248
     m_Colors:
     - _ColorBase: {r: 0.78765917, g: 0.4669811, b: 1, a: 1}
-    - _ColorEmissive: {r: 14.097148, g: 14.097148, b: 14.097148, a: 18.915161}
+    - _ColorEmissive: {r: 55.857162, g: 55.857162, b: 55.857162, a: 74.947586}
     - _ColorOther: {r: 0.759434, g: 0.82366264, b: 1, a: 1}
     - _Offset: {r: -0.1, g: -0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
