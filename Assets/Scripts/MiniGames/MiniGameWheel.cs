@@ -20,6 +20,8 @@ namespace MiniGames
     
         [Range(0, 100)] public float WheelValue;
         [SerializeField] private Vector2 _center;
+        
+        [SerializeField] private Transform _wheelTransform;
     
         private void Awake()
         {
@@ -80,6 +82,15 @@ namespace MiniGames
         {
             WheelValue += (value * 100)  * Time.deltaTime;
             WheelValue = Mathf.Clamp(WheelValue, 0, 100);
+
+            if (value > 0)
+            {
+                _wheelTransform.Rotate(Vector3.forward, 180f * Time.deltaTime);
+            }
+            else if (value < 0)
+            {
+                _wheelTransform.Rotate(Vector3.forward, -180f * Time.deltaTime);
+            }
         }
     }
 }

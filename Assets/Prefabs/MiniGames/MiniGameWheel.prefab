@@ -493,6 +493,7 @@ MonoBehaviour:
   _currentTimerInCenter: 0
   WheelValue: 0
   _center: {x: 35, y: 65}
+  _wheelTransform: {fileID: 4280310768862920604}
 --- !u!65 &21691713504123509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -797,6 +798,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb321399a4fcc24f98a216611b2efc9, type: 3}
+--- !u!4 &4280310768862920604 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -9061683181293975931, guid: efb321399a4fcc24f98a216611b2efc9, type: 3}
+  m_PrefabInstance: {fileID: 4132291110763313433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4526787925671698162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efb321399a4fcc24f98a216611b2efc9, type: 3}
