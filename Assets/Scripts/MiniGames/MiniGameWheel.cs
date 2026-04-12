@@ -78,7 +78,7 @@ namespace MiniGames
 
         private void MovingValueWheel(float value)
         {
-            WheelValue += value;
+            WheelValue += value * Time.deltaTime;
             WheelValue = Mathf.Clamp(WheelValue, 0, 100);
         }
     }
