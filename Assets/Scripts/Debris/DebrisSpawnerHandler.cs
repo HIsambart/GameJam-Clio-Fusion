@@ -59,8 +59,11 @@ namespace Debris
                 );
 
                 Vector3 spawnPosition = transform.position + spawnOffset;
+                
+                float randomYRotation = Random.Range(0f, 360f);
+                Quaternion spawnRotation = Quaternion.Euler(0f, randomYRotation, 0f);
 
-                GameObject go = Instantiate(_debrisPrefab, spawnPosition, Quaternion.identity, transform);
+                GameObject go = Instantiate(_debrisPrefab, spawnPosition, spawnRotation, transform);
                 _debrisPrefabs.Add(go);
             }
         }
