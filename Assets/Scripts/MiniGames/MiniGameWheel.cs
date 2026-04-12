@@ -62,6 +62,7 @@ namespace MiniGames
             _currentTimerInCenter = _maxTimerInCenter;
             _panel.SetActive(true);
             WheelValue = 0;
+            AudioManager.Instance.PlaySound(AudioManager.Instance.BruitJeuRotation);
         }
 
         [ContextMenu("End game")]

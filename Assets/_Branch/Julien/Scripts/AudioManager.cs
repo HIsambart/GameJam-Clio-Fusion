@@ -3,18 +3,27 @@ using Utils;
 
 public class AudioManager : MonoBehaviourSingleton<AudioManager>
 {
-    public AudioClip BruitDebrit;
-    public AudioClip BruitDefaite;
-    public AudioClip BruitDeFeu;
+    [Header("Ambiance")]
+    
     public AudioClip BruitDuTokamak;
+    public AudioClip MusiqueInGame;
+    public AudioClip MusiqueMenuDELancement;
+    
+    [Header("End Game")]
+    public AudioClip BruitVictoire;
+    public AudioClip BruitDefaite;
+    
+    [Header("Mini game")]
+    
+    public AudioClip BruitWarning;
     public AudioClip BruitJeuPression;
     public AudioClip BruitJeuRotation;
     public AudioClip BruitJeuxRecette;
+    public AudioClip BruitDeFeu;
+    
+    [Header("Other")]
+    public AudioClip BruitDebrit;
     public AudioClip BruitUI;
-    public AudioClip BruitVictoire;
-    public AudioClip BruitWarning;
-    public AudioClip MusiqueInGame;
-    public AudioClip MusiqueMenuDELancement;
     public AudioClip Perso_Pas1;
     public AudioClip Perso_Pas2;
     

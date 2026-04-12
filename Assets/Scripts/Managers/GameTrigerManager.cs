@@ -56,6 +56,7 @@ namespace Managers
                 game.PanelWarning.SetActive(true);
                 if (!game.AsPlayedOneTime) game.PlayTutoriel();
                 GameWarningCount++;
+                AudioManager.Instance.PlaySound(AudioManager.Instance.BruitWarning);
                 
 
                 if (index == 0)

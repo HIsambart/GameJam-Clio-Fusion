@@ -30,6 +30,7 @@ namespace Managers
             _panelEndGame.SetActive(true);
             _tmpEndGame.text = "GAME OVER";
             _tmpEndGame.color = Color.red;
+            AudioManager.Instance.PlaySound(AudioManager.Instance.BruitDefaite);
         }
         
         public void WinGame()
@@ -37,6 +38,7 @@ namespace Managers
             _panelEndGame.SetActive(true);
             _tmpEndGame.text = "WIN";
             _tmpEndGame.color = Color.green;
+            AudioManager.Instance.PlaySound(AudioManager.Instance.BruitVictoire);
         }
         
         public void ReloadGame()
