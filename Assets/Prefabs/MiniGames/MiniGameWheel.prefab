@@ -838,11 +838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9145717014602717775, guid: d36eb75984da3704ba40465b26cdf662, type: 3}
       propertyPath: m_text
-      value: Tournez la roue afin de stabiliser le tokama
+      value: "Tournez la roue \nafin de stabiliser le r\xE9acteur"
       objectReference: {fileID: 0}
     - target: {fileID: 9145717014602717775, guid: d36eb75984da3704ba40465b26cdf662, type: 3}
       propertyPath: m_fontSize
-      value: 0.32
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 9145717014602717775, guid: d36eb75984da3704ba40465b26cdf662, type: 3}
       propertyPath: m_margin.w
@@ -874,7 +874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9145717014602717775, guid: d36eb75984da3704ba40465b26cdf662, type: 3}
       propertyPath: m_fontSizeBase
-      value: 0.32
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 9145717014602717775, guid: d36eb75984da3704ba40465b26cdf662, type: 3}
       propertyPath: m_fontColor32.rgba

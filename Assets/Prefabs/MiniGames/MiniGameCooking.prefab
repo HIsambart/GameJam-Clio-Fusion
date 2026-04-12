@@ -1322,7 +1322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9145717014602717775, guid: d36eb75984da3704ba40465b26cdf662, type: 3}
       propertyPath: m_text
-      value: Tournez la roue afin de stabiliser le tokama
+      value: Retenez la recette et cuisinez-la.
       objectReference: {fileID: 0}
     - target: {fileID: 9145717014602717775, guid: d36eb75984da3704ba40465b26cdf662, type: 3}
       propertyPath: m_fontSize
