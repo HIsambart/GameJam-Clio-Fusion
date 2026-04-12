@@ -22,8 +22,8 @@ namespace InputHandlersScripts
             _player._playerInput.actions["Move"].performed += OnMoving;
             _player._playerInput.actions["Move"].canceled += OnMoving;
             
-            _player._playerInput.actions["Interact"].performed += OnInteract;
-            _player._playerInput.actions["Interact"].canceled += OnInteract;
+            _player._playerInput.actions["Interact"].started += OnInteract;
+            // _player._playerInput.actions["Interact"].canceled += OnInteract;
 
             // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
             // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
@@ -33,7 +33,7 @@ namespace InputHandlersScripts
         {
             _player._playerInput.actions["Move"].performed -= OnMoving;
             
-            _player._playerInput.actions["Interact"].performed -= OnInteract;
+            _player._playerInput.actions["Interact"].started -= OnInteract;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
