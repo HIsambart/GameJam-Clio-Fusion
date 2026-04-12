@@ -80,7 +80,7 @@ namespace MiniGames
             PlayerInputS.enabled = false;
             _canCook = false;
             StartCoroutine(HideRecette());
-            Debug.Log("Game Cook start");
+            AudioManager.Instance.PlaySound(AudioManager.Instance.BruitJeuxRecette);
         }
 
         [ContextMenu("Game finish")]
