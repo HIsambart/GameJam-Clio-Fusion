@@ -20,9 +20,6 @@ namespace MiniGames
         public int Deuterium;
         public int Triterium;
     
-        public float MaxTime;
-        [SerializeField] private float _currentTime;
-
         // Recette panel
         [SerializeField] private GameObject _panelRecette;
         [SerializeField] private TMP_Text _deuteriumText;
@@ -30,7 +27,8 @@ namespace MiniGames
     
         // Cooking panel
         [SerializeField] private GameObject _panelCooking;
-        [SerializeField] private TMP_Text _timer;
+        [SerializeField] private TMP_Text _currentDeuteriumText;
+        [SerializeField] private TMP_Text _currentTriteriumText;
     
         private void Awake()
         {
@@ -38,31 +36,20 @@ namespace MiniGames
             EventBus.PutTriterium += AddTriterium;
         }
 
-        private void Update()
-        {
-            if(!_gameStarted) return;
-            _currentTime -= Time.deltaTime;
-            int time = (int)_currentTime;
-            _timer.text = time.ToString();
-            if (_currentTime <= 0)
-            {
-                GameOver();
-            }
-        }
-
         public override void Interact(PlayerScripts.Player player)
         {
             if(!IsNeedToPlay) return;
             PanelWarning.SetActive(false);
             Player = player;
+            player.move = Vector2.zero;
             PlayerInputS = Player.GetComponent<PlayerInputSubscriber>();
             GameStart();
         }
 
         public override void GameStart()
         {
-            DeuteriumCount = Random.Range(2, 6);
-            TriteriumCount = Random.Range(2, 6);
+            DeuteriumCount = Random.Range(5, 15);
+            TriteriumCount = Random.Range(5, 15);
 
             Deuterium = 0;
             Triterium = 0;
@@ -71,9 +58,11 @@ namespace MiniGames
             _deuteriumText.text = DeuteriumCount.ToString();
             _triteriumText.text = TriteriumCount.ToString();
             _panelCooking.SetActive(false);
+            _currentDeuteriumText.text = Deuterium.ToString();
+            _currentTriteriumText.text = Triterium.ToString();
         
             _canCook = false;
-            _currentTime = MaxTime;
+            // _currentTime = MaxTime;
             _gameStarted = true;
             
             if (Player.GetComponent<PlayerInputCooking>() == null) Player.AddComponent<PlayerInputCooking>();
@@ -86,16 +75,7 @@ namespace MiniGames
         [ContextMenu("Game finish")]
         public override void GameOver()
         {
-            Debug.Log("Game over");
-            if (Deuterium == DeuteriumCount &&  Triterium == TriteriumCount)
-            {
-                GameWin();
-            }
-            else
-            {
-                Retry();
-            }
-        
+            
         }
 
         public override void PlayTutoriel()
@@ -113,6 +93,7 @@ namespace MiniGames
         public void GameWin()
         {
             Destroy(Player.GetComponent<PlayerInputCooking>());
+            PlayerInputS.enabled = true;
             _gameStarted = false;
             _panelCooking.SetActive(false);
             IsNeedToPlay = false;
@@ -126,21 +107,34 @@ namespace MiniGames
         private void AddDeuterium()
         {
             if (!_canCook) return;
+            
             Deuterium += 1;
+            _currentDeuteriumText.text = Deuterium.ToString();
+            
             if (Deuterium > DeuteriumCount)
             {
                 Retry();
+            }
+            else if (Deuterium == DeuteriumCount && Triterium == TriteriumCount)
+            {
+                GameWin();
             }
         }
 
         private void AddTriterium()
         {
             if (!_canCook) return;
+            
             Triterium += 1;
-            _triteriumText.text = Triterium.ToString();
+            _currentTriteriumText.text = Triterium.ToString();
+            
             if (Triterium > TriteriumCount)
             {
                 Retry();
+            }
+            else if (Deuterium == DeuteriumCount && Triterium == TriteriumCount)
+            {
+                GameWin();
             }
         }
 

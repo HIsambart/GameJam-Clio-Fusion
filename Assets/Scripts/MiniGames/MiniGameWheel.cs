@@ -49,6 +49,7 @@ namespace MiniGames
         {
             if(!IsNeedToPlay) return;
             Player = player;
+            player.move = Vector2.zero;
             PanelWarning.SetActive(false);
             PlayerInputS = Player.GetComponent<PlayerInputSubscriber>();
             GameStart();

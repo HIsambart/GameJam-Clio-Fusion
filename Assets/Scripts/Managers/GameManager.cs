@@ -25,11 +25,13 @@ namespace Managers
         {
             Time.timeScale = 1;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void LoseGame()
         {
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             _panelEndGame.SetActive(true);
             _tmpEndGame.text = "GAME OVER";
             _tmpEndGame.color = Color.red;
@@ -41,6 +43,7 @@ namespace Managers
         public void WinGame()
         {
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             if (!_alreadyPlayConfeti) _confetisParticles.Play();
             _panelEndGame.SetActive(true);
             _tmpEndGame.text = "WIN";

@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniGameCooking
       objectReference: {fileID: 0}
+    - target: {fileID: 6616961769274187585, guid: ec9d5f75d6f09fc41be913cd7ee8f2cb, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2097088617}
+    - target: {fileID: 6616961769274187585, guid: ec9d5f75d6f09fc41be913cd7ee8f2cb, type: 3}
+      propertyPath: PlayerInputS
+      value: 
+      objectReference: {fileID: 2097088616}
     - target: {fileID: 8585900947220474558, guid: ec9d5f75d6f09fc41be913cd7ee8f2cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -1039,7 +1047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "L\xE9na DE LUCA\n\nCalvin OVIDE\n\nMarion DUBREIL\n\nMa\xEBlys MANICAS\n\nJulien
+  m_text: "L\xE9na DE LUCA\n\nCalvin OVIDE\n\nMarion DUBREUIL\n\nMa\xEBlys MANICAS\n\nJulien
     DURAND\n\nHugo ISAMBART\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -2831,6 +2839,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815978653}
   m_CullTransparentMesh: 1
+--- !u!1001 &1857671876
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.9047983
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.006444713
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591172491843065830, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654154292674712703, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
+      propertyPath: m_Name
+      value: DebrisHandler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6adfd9ae248c5a44a85853256beb7e19, type: 3}
 --- !u!1001 &1914009993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3038,6 +3103,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970755043}
   m_CullTransparentMesh: 1
+--- !u!114 &2097088616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8345014556872981311, guid: 6a3546f4d98cd814b9dcccf2ee83a0de, type: 3}
+  m_PrefabInstance: {fileID: 309385741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8339b484cb446940bcfed1423b564cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Script.Input.PlayerInputHandler
+--- !u!114 &2097088617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3869162326251875102, guid: 6a3546f4d98cd814b9dcccf2ee83a0de, type: 3}
+  m_PrefabInstance: {fileID: 309385741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e5c9761d34ddf4dbc29c9281c679c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Julien.Script.PlayerScripts.Player
 --- !u!64 &2118838415
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3526,3 +3613,4 @@ SceneRoots:
   - {fileID: 1945293870}
   - {fileID: 2145298838}
   - {fileID: 325575500}
+  - {fileID: 1857671876}

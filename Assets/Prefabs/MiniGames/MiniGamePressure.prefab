@@ -52,7 +52,7 @@ MonoBehaviour:
   MinimumLevel: 50
   CurrentLevel: 50
   DecreaseSpeed: 1
-  AddAmount: 10
+  AddAmount: 5
   TargetsSize:
   - {fileID: 3832898914981257206}
   RangeSize: {x: 0, y: 2}

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
@@ -33,6 +32,7 @@ namespace Debris
         private void Update()
         {
             if (_target) transform.position = _target.position;
+            if (transform.position.y <= -15f) Destroy(gameObject);
         }
     }
 }

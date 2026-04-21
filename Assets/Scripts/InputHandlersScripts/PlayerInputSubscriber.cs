@@ -21,7 +21,7 @@ namespace InputHandlersScripts
             _player._playerInput.actions["Move"].performed += OnMoving;
             _player._playerInput.actions["Move"].canceled += OnMoving;
             
-            _player._playerInput.actions["Interact"].performed += OnInteract;
+            _player._playerInput.actions["Interact"].performed += OnInteracting;
             // _player._playerInput.actions["Interact"].canceled += OnInteract;
         }
         
@@ -30,7 +30,7 @@ namespace InputHandlersScripts
             _player._playerInput.actions["Move"].performed -= OnMoving;
             _player._playerInput.actions["Move"].canceled -= OnMoving;
             
-            _player._playerInput.actions["Interact"].performed -= OnInteract;
+            _player._playerInput.actions["Interact"].performed -= OnInteracting;
             // _player._playerInput.actions["Interact"].canceled -= OnInteract;
         }
     
@@ -52,7 +52,7 @@ namespace InputHandlersScripts
             _player.move = context.ReadValue<Vector2>();
         }
         
-        private void OnInteract(InputAction.CallbackContext context)
+        private void OnInteracting(InputAction.CallbackContext context)
         {
             _player.Interact();
         }
