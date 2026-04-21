@@ -10,11 +10,13 @@ namespace Managers
         [Header("===== REFERENCES =====")]
         [SerializeField] private GameObject _panelEndGame;
         [SerializeField] private TextMeshProUGUI _tmpEndGame;
+        [SerializeField] private GameObject _panelPauseGame;
         
         [Header("===== PS ======")]
         [SerializeField] private ParticleSystem _confetisParticles;
 
         private bool _alreadyPlayConfeti = false;
+        private bool IsGamePause = false;
         
         private void Start()
         {
@@ -38,6 +40,34 @@ namespace Managers
             if (!_alreadyPlayConfeti) AudioManager.Instance.PlaySound(AudioManager.Instance.BruitDefaite);
             
             _alreadyPlayConfeti = true;
+        }
+
+        public void PauseGame()
+        {
+            if (!IsGamePause)
+            {
+                _panelPauseGame.SetActive(true);
+                Time.timeScale = 0;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                IsGamePause = true;
+            }
+            else
+            {
+                _panelPauseGame.SetActive(false);
+                Time.timeScale = 1;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                IsGamePause = false;
+            }
+        }
+
+        public void ResumeGame()
+        {
+            _panelPauseGame.SetActive(false);
+            Time.timeScale = 1;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         
         public void WinGame()

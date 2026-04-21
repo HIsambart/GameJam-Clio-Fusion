@@ -23,6 +23,8 @@ namespace InputHandlersScripts
             
             _player._playerInput.actions["Interact"].performed += OnInteracting;
             // _player._playerInput.actions["Interact"].canceled += OnInteract;
+            
+            _player._playerInput.actions["Start"].performed += OnStarted;
         }
         
         private void OnDisable()
@@ -32,6 +34,8 @@ namespace InputHandlersScripts
             
             _player._playerInput.actions["Interact"].performed -= OnInteracting;
             // _player._playerInput.actions["Interact"].canceled -= OnInteract;
+            
+            _player._playerInput.actions["Start"].performed -= OnStarted;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -55,6 +59,11 @@ namespace InputHandlersScripts
         private void OnInteracting(InputAction.CallbackContext context)
         {
             _player.Interact();
+        }
+        
+        private void OnStarted(InputAction.CallbackContext context)
+        {
+            _player.OnStarting();
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Interfaces;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using EventBus = Utils.EventBus;
@@ -132,6 +133,11 @@ namespace PlayerScripts
                 EquipedCollectable = _iCollectables[0];
                 EquipedCollectable.GetComponent<ICollectable>().Collect(_handTransform);
             }
+        }
+        
+        public void OnStarting()
+        {
+            GameManager.Instance.PauseGame();
         }
 
         private void OnTriggerEnter(Collider other)
