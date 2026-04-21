@@ -18,17 +18,18 @@ namespace Managers
         
         private void Start()
         {
-            Cursor.visible = false;
             Time.timeScale = 0;
         }
 
         public void StartGame()
         {
             Time.timeScale = 1;
+            Cursor.visible = false;
         }
 
         public void LoseGame()
         {
+            Cursor.visible = true;
             _panelEndGame.SetActive(true);
             _tmpEndGame.text = "GAME OVER";
             _tmpEndGame.color = Color.red;
@@ -39,6 +40,7 @@ namespace Managers
         
         public void WinGame()
         {
+            Cursor.visible = true;
             if (!_alreadyPlayConfeti) _confetisParticles.Play();
             _panelEndGame.SetActive(true);
             _tmpEndGame.text = "WIN";

@@ -113,7 +113,6 @@ namespace MiniGames
         public void GameWin()
         {
             Destroy(Player.GetComponent<PlayerInputCooking>());
-            PlayerInputS.enabled = true;
             _gameStarted = false;
             _panelCooking.SetActive(false);
             IsNeedToPlay = false;

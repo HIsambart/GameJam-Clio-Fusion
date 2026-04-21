@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,8 +16,6 @@ namespace InputHandlersScripts
             InputSystem.onDeviceChange += OnDeviceChange;
          
             _player._playerInput.actions["MoveWheel"].performed += OnMovingWheel;
-            // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
-            // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
         }
         
         private void OnDisable()
@@ -37,10 +34,6 @@ namespace InputHandlersScripts
         private void DetectCurrentInputDevice()
         {
             _isControllerConnected = Gamepad.all.Count > 0;
-            
-            //Debug.Log(_isControllerConnected
-            //? "Controller connected: Switching to Gamepad controls."
-            //: "No controller connected: Switching to Keyboard/Mouse controls.");
         }
         
         private void OnMovingWheel(InputAction.CallbackContext context)

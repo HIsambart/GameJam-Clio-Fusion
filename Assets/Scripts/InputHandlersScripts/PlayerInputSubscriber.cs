@@ -1,4 +1,3 @@
-using System;
 using PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,18 +21,17 @@ namespace InputHandlersScripts
             _player._playerInput.actions["Move"].performed += OnMoving;
             _player._playerInput.actions["Move"].canceled += OnMoving;
             
-            _player._playerInput.actions["Interact"].started += OnInteract;
+            _player._playerInput.actions["Interact"].performed += OnInteract;
             // _player._playerInput.actions["Interact"].canceled += OnInteract;
-
-            // GameManager.PlayerPrefabs.Add(PlayerInputManager.playerPrefab.gameObject);
-            // Debug.Log(PlayerInputManager.playerPrefab.gameObject+ " Join the game " );
         }
         
         private void OnDisable()
         {
             _player._playerInput.actions["Move"].performed -= OnMoving;
+            _player._playerInput.actions["Move"].canceled -= OnMoving;
             
-            _player._playerInput.actions["Interact"].started -= OnInteract;
+            _player._playerInput.actions["Interact"].performed -= OnInteract;
+            // _player._playerInput.actions["Interact"].canceled -= OnInteract;
         }
     
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
@@ -47,10 +45,6 @@ namespace InputHandlersScripts
         private void DetectCurrentInputDevice()
         {
             _isControllerConnected = Gamepad.all.Count > 0;
-            
-            //Debug.Log(_isControllerConnected
-            //? "Controller connected: Switching to Gamepad controls."
-            //: "No controller connected: Switching to Keyboard/Mouse controls.");
         }
         
         private void OnMoving(InputAction.CallbackContext context)
